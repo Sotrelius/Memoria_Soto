@@ -1,0 +1,3 @@
+cat resulconf05 resulconf5 resulconf50 resulconf100 resulconf500 > resultNoALL
+
+
