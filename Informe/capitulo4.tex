@@ -1,0 +1,139 @@
+\chapter{ Esfuerzos del Esqueleto de suelo y efectos del flujo} 
+\section{ Introducción}
+En el presente capítulo se analizarán características de distintas configuraciones de suelos, esto enfocado en definir cómo es la distribución de fuerzas en el paquete de suelo y estudiar cómo el fluido afecta dicha distribución. Se modifica un conjunto de condiciones y parámetros a los modelos. Dentro de los cambios  más relevantes es que se le activarán los módulos de cálculo que permiten agregar los efectos viscosos normales y tangenciales al paquete de flujo, esto permite que el modelo represente de mejor manera la realidad, resolviendo con mayor detalle la transferencia de momentum desde el fluido hacia el solido; también se disminuye el intervalo de actualización de la malla de fluido; por otro lado se rectifica el valor del módulo de Young a 1e7.\\
+
+Se define R como el cociente entre el diámetro máximo y el diámetro mínimo ($R=\frac{D_{max}}{D_{min}}$) y R1 como el cociente entre el D85 y el D15 ($R1=\frac{d_{85}}{d_{15}}$). Se construirán granulometrías extendidas para distintos valores de R utilizando distintas metodologías. Se realizan 4 tipos de modelos, primero se construyen modelos bimodales estratificados, estos consisten en estratos de esferas gruesas sobre estratos de esferas finas dispuestos horizontalmente. En segundo lugar se crean  modelos uniformemente distribuidos con características similares a los modelos utilizados en el capítulo 4. En tercer lugar se analizan granulometrías reales y por último modelos bimodales no estratificados.\\
+
+En la figura \ref{fig:soil} se observa en a) un modelo bimodal estratificado de 6 capas uniformemente distribuidos para un valor de Sd=0.17 y la razón entre los granos gruesos y los granos finos es R=4.6. Luego en b) se presenta un modelo uniformemente distribuido para un $R_{mean}= 3 [mm] $, $R=5.15$, $R_1=1.57$ y un Sd=0.68. Por ultimo en c) se observa un modelos bimodal no estratificado con un Sd=0.51 y un R=5. En la figura el color rojo indica esfuerzos normales altos y el azul esfuerzos normales cercanos a cero (en escala logaritmica, por lo tanto significan ordenes de magnitud de diferencia). La intención es mostrar su distribución espacial, no valores. En a) se aprecia el confinamiento del muro en la parte superior (gran cantidad de esferas pequeñas de color rojo), se observa también que las esferas finas no pueden migrar entre los estratos, lo que se expresa en la existencia de estratos y concentraciones de esferas pequeñas en el sector medio y cercano a las esquinas del paralelogramo. Lla mayoría de las esferas finas reposan sobre las esferas gruesas y no transmiten esfuerzo normal (color azul). El confinamiento se encuentra en proceso, pero las esferas ya habian alcanzado el reposo luego de acomodarse por efecto de la gravedad. En b) no es tan notorio un camino preferencial, pero se observa que las esferas pequeñas transmiten menores esfuerzo, por ultimo en c) es claro cómo la tensión es transmitida en su mayoría por los granos de mayor tamaño.\\
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.68\textwidth]{Capitulo4/Soil_C5}
+\caption{(a) Modelo Bimodal estratificado de 6 capas (con cada capa uniformemente distribuida Sd=0.17), (b) Modelo uniformemente distribuido Sd=0.68 y (c) Modelo Bimodal PSD}
+\label{fig:soil}
+\end{figure}
+
+\section{ Modelos bimodales estratificados}
+Se realizan modelos estratificados para distintos valores de R, porque se busca obtener paquetes de suelo con la configuración \textit{"Layer wise"} (por capas) (\citealt{to2015primary})  o alguna similar. En primera instancia poseen 6 estratos y luego se aumentan a 12. Los estratos se sobreponen entre sí , partiendo con uno grueso, luego uno fino y así sucesivamente hasta completar el número correspondiente. La razón de altura entre los paquetes finos y gruesos es de 1:4 para que la cantidad de esferas finas no sea tan grande. Con respecto a los modelos anteriores las dimensiones se reducen para disminuir costos computacionales mientras se desarrolla la búsqueda de la configuración de suelo definitiva. Estos modelos son principalmente de carácter exploratorio ya sea de propiedades, comportamientos o factibilidad de construcción.\\
+
+Para verificar de forma cuantitativa la distribución de fuerzas en los paquetes de suelo es que se define el porcentaje de fuerzas promedio transportado por las esferas finas $G_{fm}$, esto corresponde al cociente entre la sumatoria del módulo de las fuerzas transportadas por las esferas finas $F_{fino}$ y el número de esferas finas $n_{fino}$, dividido por la sumatoria del esfuerzo promedio fino y el esfuerzo promedio grueso $F_{grueso}/n_{grueso}$, de forma análoga se obtiene $G_{gm}$. Con la expresión \textit{O.forces.f(i)} se extrae del modelo el vector de fuerzas de cada partícula tal como se muestra en \ref{eq:Gmm}.
+
+\begin{equation}
+G_{fm}=\frac{F_{fino}/n_{fino}}{F_{fino}/n_{fino}+F_{grueso}/n_{grueso}} \hspace{1 cm}
+G_{gm}=\frac{F_{grueso}/n_{grueso}}{F_{fino}/n_{fino}+F_{grueso}/n_{grueso}}
+\label{eq:Gmm}
+\end{equation}
+
+\begin{equation}
+F_{fino}=\sum_{i=0}^{n_{fino}}{\lef| O.forces.f(i) \lef|} \hspace{2 cm}
+F_{grueso}=\sum_{i=0}^{n_{grueso}}{\lef| O.forces.f(i) \lef|}
+\end{equation}
+
+
+En la Figura \ref{fig:g_intimeP0015R15(exp)} se observa en azul $G_{fm}$ y en magenta $G_{gm}$, el primer tramo corresponde a la estabilización luego de caer por efecto de la gravedad (alrededor de las 16.000 iteraciones), en el primer peak se observa el efecto del confinamiento, ya que el estrato superior corresponde a esferas finas, pero conforme aumenta la tensión de confinamiento las esferas de mayor tamaño son las que transportan la mayor cantidad de fuerza (entre la iteración 17.000 y 38.000 aproximadamente), luego el paquete de suelo es descomprimido para verificar el carácter reversible del proceso (entre la iteración 38.000 y 43.000 aproximadamente). El segundo valle corresponde a un confinamiento realizado a una menor velocidad, se descomprime con el mismo módulo de velocidad, pero en sentido contrario (entre la iteración 56.000 y 80.000 aproximadamente). Posterior a la iteración 80.000 se observa el efecto de la diferencia de presión, se manifiesta cualitativamente como peaks cuando se aumenta su magnitud de forma considerable, entre uno y tres ordenes de magnitud, se asume que el momentum se transfiere a las esferas de menor tamaño incluso desplazandolas, aumentando de forma momentánea el esfuerzo transportado por las esferas finas.  Los escalones del último tramo corresponden a compresiones rápidas discontinuas (desde la iteración 100.000).
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=\textwidth]{Capitulo4/g_intimeP0015R15(exp)m}
+\caption{Porcentaje de esfuerzo promedio de los granos finos $G_{fm}$ y de los granos gruesos $G_{gm}$ en función del tiempo expresado en número de iteraciones.}
+\label{fig:g_intimeP0015R15(exp)}
+\end{figure}
+
+\subsection{Relación entre la distribución de los esfuerzos y la razón entre los radios.}
+Se registraron los resultados para cinco simulaciones bimodales de 6 capas para valores de R=[1.0 1.5 2.0 4.6 5.5] obteniendo los resultados que se muestran en la Figura \ref{fig:GvsRBM}. Se observa un rápido aumento del porcentaje de carga transportado por las esferas gruesas en el primer tramo entre $R=1$ y $R=1.5$, luego aumenta de forma monótona creciente conforme aumenta R, pero con una pendiente menor al primer tramo. Al ser un modelo bimodal se tienen solo 2 tamaños de partícula y la suma $G_{fm}+G_{gm}=1$.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.95\textwidth]{Capitulo4/GvsRBM}
+\caption{Porcentaje de transmisión de Fuerzas promedios en función de R.}
+\label{fig:GvsRBM}
+\end{figure}
+
+En los modelos realizados las esferas se depositan por efecto de la gravedad y quedando en la posición de equilibrio. No se realiza confinamiento del paquete de esferas debido a que para valores de R mayores a 4.6 las esferas finas quedan todas en el fondo y para R menores o iguales a 4.6 las esferas no migran entre los estratos, en consecuencia no se logra la configuración de suelos por capa (\textit{"layer Wise"}). La situación descrita produce en el segundo caso que las esferas finas del estrato superior reciban gran cantidad de carga y para los estratos inferiores los esfuerzos sean transportados en su mayoría por los estratos de esferas gruesas, distorsionando los resultados, ya que existe una gran cantidad de esferas finas cargadas que no deberían estarlo. Se intenta corregir el problema aumentando el numero de estratos a 12 y disminuyendo su ancho, pero este cambio no soluciona el problema. 
+
+\section{ Modelos uniformemente distribuidos}
+Se realizan permeámetros en donde el ancho basal corresponde a $D=30*R_{mean}$ y la altura de la muestra a $h=48*R_{mean}$, para un radio promedio $R_{mean}=0.3$ [mm] y las distintas distribuciones granulométricas dadas por  Sd=[0.17 0.34 0.51 0.68 0.75], en esta ocasión la diferencia de presión impuesta al fluido es pequeña $P_i=0.01$ [Pa] ya que el interés radica en la distribución de esfuerzos. Se decide darle seguimiento al porcentaje de esfuerzos transmitido por las partículas mayores al tamaño D85  definido como $F_{D85}$ y a las menores al tamaño D15 definido como $F_{D15}$ . En esta ocasión se asume un módulo de elasticidad de Young de 1e9 [Pa], dos ordenes de magnitud mayor que en los modelos del capítulo 4. Al igual que para los modelos bimodales se calculan los esfuerzos promedios por tamaño de partícula, pero en esta ocasión se agregan los esfuerzos de las partículas que se encuentran entre el D15 y el D85 la que se denomina $F_{resto}$. Además $n_{D15}$ corresponde a la cantidad de esferas menores al tamaño D15, $n_{D85}$ a las mayores al tamaño D85 y $n_{resto}$ a la cantidad de esferas entre el tamaño D15 y D855.
+
+\begin{equation}
+F_{resto}=\sum_{i=0}^{n_{resto}}{\lef| O.forces.f(i) \lef|} 
+\end{equation}
+
+Por tanto los parámetros quedan definidos de la siguiente manera:
+
+\begin{equation}
+G_{fm}=\frac{F_{D15}/n_{D15}}{F_{D15}/n_{D15}+F_{D85}/n_{D85}+F_{resto}/n_{resto}}
+\hspace{1.5 cm}
+ F_{D15}=\sum_{i=0}^{n_{D15}}{\lef| O.forces.f(i) \lef|} 
+\end{equation}
+
+\begin{equation}
+G_{gm}=\frac{F_{D85}/n_{D85}}{F_{D15}/n_{D15}+F_{D85}/n_{D85}+F_{resto}/n_{resto}}
+\hspace{1.5 cm}
+ F_{D855}=\sum_{i=0}^{n_{D85}}{\lef| O.forces.f(i) \lef|} 
+\end{equation}\\
+
+
+\subsection{Relación entre la distribución de los esfuerzos y la razón entre los radios.}
+En la Figura \ref{fig:GvsR} se aprecia que conforme aumenta la razón R y R1 los granos de menor tamaño llevan menos carga promedio del total de esfuerzo y por otro lado los granos de mayor tamaño llevan una mayor cantidad de esfuerzos promedios, lo que verifica la existencia de caminos preferenciales de transmisión de esfuerzos asociadas a los granos de mayor tamaño.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=1.\textwidth]{Capitulo4/GvsR}
+\caption{Porcentaje de transmisión de Fuerzas promedios en función de R y R1.}
+\label{fig:GvsR}
+\end{figure}
+
+En estos modelos las esferas luego de depositarte por efecto de la gravedad, son confinadas por el muro superior hasta 2 [KPa], los valores de G se extraen de la situación de equilibrio.
+
+\section{Modelos PSD \textit{(Particle size distribution)} }
+Existe una herramienta para construir granulometrias reales, la que denominamos PSD. Para poder utilizarla se debe discretizar la curva granulométrica, obteniendo un vector para el porcentaje que pasa y otro para el tamaño de grano. Existe la posibilidad de distribuir por tamaño del radio o por masa. La opción de distribución por masa posee mayores costos computacionales. Se debe recalcar que el uso de distintas variantes de construcción de distribuciones de granos es porque se busca obtener una en donde los granos finos se encuentren rodeando la vecindad de los granos más gruesos, para luego verificar la existencia de las cadenas de esfuerzos y ver como responde a la acción del flujo de fluido.
+
+\subsection{Granulometrias Bimodales}
+Se utiliza la herramienta PSD y se distribuye en torno a dos tamaños de grano, por lo que se obtiene una distribución bimodal no estratificada en donde los granos finos y los granos gruesos se encuentran homogeneamente distribuidos en el espacio. Se realizan varios modelos, encontrando migración de partículas finas para gradientes hidráulicos pequeños, esta migración ocurre para valores de R mayores a 4.6, no obstante la forma de la curva indica que la granulometría es estable según el criterio de estabilidad  propuesto por (\citealt{kenney1985internal}).
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.98\textwidth]{Capitulo4/F_vs_H2}
+\caption{.}
+\label{fig:FvsH2}
+\end{figure}
+
+Los tamaños de los modelos van desde el orden de las 1500 esferas (R=1) hasta las 8000 esferas (R=5.4). Se utilizan valores de R=[1.0 1.5 2.0 4.6 5.4] a los que respectivamente se les aplica un Sd=[0.00 0.05 0.17 0.51 0.68]. En la Figura \ref{fig:GvsRBPSD} se observa el comportamiento de la distribución de fuerza promedio en las partículas finas y en las partículas gruesas, el comportamiento es prácticamente el mismo que en los casos anteriores y confirma que un porcentaje mayor de las fuerzas se transmite por los granos de mayor tamaño. En la Figura 
+\ref{fig:granPSDB} se observa la granulometría de los 5 modelos analizados.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.88\textwidth]{Capitulo4/GvsRBPSD2}
+\caption{Porcentaje de transmisión de Fuerzas promedios en función de R.}
+\label{fig:GvsRBPSD}
+\end{figure}
+
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.78\textwidth]{Capitulo4/gran_PSDB}
+\caption{Granulometrias Bimodales}
+\label{fig:granPSDB2}
+\end{figure}
+
+
+\subsection{Granulometrias Reales}
+Se replica la granulometría denominada C20, utilizada en experimentos de laboratorios, para obtener el gradiente hidráulico crítico, caracterizar la distribución de esfuerzos en función del tamaño de partícula y comparar los resultados con un modelo teórico propuesto (\citealt{moffat2014hydromechanical}). Modelar una granulometría tan extendida presenta una serie de complicaciones, lo primero es que el dominio debe ser de mayores dimensiones que los utilizados. Para que contenga todos los diámetros, debido a que existe una diferencia mayor a dos ordenes de magnitud entre la esfera de menor tamaño y la más grande. En segundo lugar el paso de tiempo es inversamente proporcional  al radio de la esfera de menor tamaño a la potencia de 4 (\citealt{vsmilauer2010yade}), por lo tanto realizar simulaciones con tamaños tan dispares resulta infactible con la capacidad computacional que se posee. Se eliminan las esferas de menor y mayor tamaño, con esto el paso de tiempo crítico se logra reducir de 5e-13 a 5e-11 [s], pero ambos tiempos son infactibles.\\
+
+La causa es que el tamaño del diámetro mínimo define el paso de tiempo critico $\Delta t_{cr}$ tal como muestra  (\ref{eq:tc}) y el costo computacional es proporcional a la cantidad de elementos.
+
+\begin{equation}
+\Delta t_{cr}=\min(R_i)\sqrt{\frac{\rho_i}{\epsilon_i}}
+\label{eq:tc}
+\end{equation}
+
+Otros parámetros que determinan este paso de tiempo son $\rho$ que corresponde a la densidad del sólido y $\epsilon$ al módulo de elasticidad  
+
+%\begin{figure}[htb]
+%\centering
+%\includegraphics[width=0.86\textwidth]{Capitulo4/gran_C20}
+%\caption{Granulometria C20 reducida}
+%\label{fig:granC20}
+%\end{figure}
+
+

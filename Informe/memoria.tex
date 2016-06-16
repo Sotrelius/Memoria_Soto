@@ -1,0 +1,143 @@
+\documentclass[upright, contnum]{umemoria}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[font={small}]{caption}
+\usepackage{subfigure}
+\usepackage{lipsum}
+\usepackage{pdfpages}
+
+%\bibpunct{(}{)}{;}{n}{,}{,}
+\usepackage{natbib} %original
+%\usepackage[backend=biber]{biblatex}
+%\usepackage[authoryear,round]{natbib} %bibliografia
+
+\usepackage{multicol,caption}
+\usepackage[empty]{fullpage}
+\usepackage{amssymb} 
+\usepackage{placeins}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+
+%%%%%% paquetes para otros idiomas ;) [a lo shoro] %%%%%
+%\usepackage[spanish]{babel}
+%\usepackage{ucs}
+%\usepackage[utf8x]{inputenc}
+%\usepackage[utf8]{inputenc}
+%\usepackage[encoding]{inputenc}
+
+% \author{dns}
+\depto{Departamento de Ingeniería Civil}
+\author{Diego Nicolás Soto Rodríguez}
+\nombreauthor{Diego}
+\apellidoauthor{Soto}
+% \title{IMPLEMENTACIÓN Y VALIDACIÓN EXPERIMENTAL DE MODELO NUMÉRICO BIDIMENSIONAL DE TRANSPORTE DE OXÍGENO DISUELTO EN LAGUNAS EXTREMADAMENTE SOMERAS ENERGIZADAS POR VIENTO} [El Rtrolo]
+\title{Modelación numérica 3D de la interacción entre flujo y partícula en medios permeables}
+% \auspicio{.}[saquense unas monedas pal tesista]
+% \date{JULIO 2014}[Si hombre]
+\date{Marzo 2016}
+\guia{Ricardo Moffat Covarruvias}
+\nombreguia{Ricardo}
+\apellidoguia{Moffat}
+\carrera{Ingeniero Civil}
+%\memoria{Memoria para optar al Título de Hidraulico al fin [aguante Navier-Stokes]}
+\memoria{Memoria para optar al Título de}
+\comision{Yarko Niño Campos }{Santiago Montserrat Michelini}{\ }
+
+
+
+
+\begin{document}
+%%%%%%%%%%%%%%%% COMANDOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%no creo que use estas cagas de comandos, pero apaña saber usar tensores. [Suerte con eso]
+\newcommand{\niceVector}[1]{\mathrm{\textbf #1}}
+\newcommand{\derParcial}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\derParcialDos}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\derTotal}[2]{\frac{d #1}{d #2}}
+\newcommand{\derMaterial}[1]{\frac{D #1}{D t}}
+\newcommand{\innerProduct}[2]{\left\langle #1, #2\right\rangle}
+\newcommand{\yad}{\textit{YADE}}
+% \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+%%%%%%%%%%%%%%%
+
+\frontmatter
+\maketitle
+\pagenumbering{Roman}
+
+
+%%%%%%%%%%%%%%%%%% ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+El presente trabajo consiste en el uso de un software de código abierto llamado $\yad$ (Yet Another Dynamic Engine) escrito en lenguaje C++, que posee una interfaz en Python. Utilizando $\yad$ y elementos de programación llamados objetos se crea una serie de códigos que permiten crear paquetes de suelo con diversas características y acoplarlo a un dominio de fluido a escala de poros. El modelo resuelve la física del problema, por lo que se cambian condiciones de contorno para estudiar las respuestas que esto provoca en el suelo y del flujo.\
+
+El objetivo principal es la construcción de un modelo numérico que logre acoplar el efecto del flujo y de las partículas. Para esto se realizan modelos de prueba y modelos de suelo sin fluido, luego se construyen modelos acoplados con flujo ascendente. Se valida el modelo para el análisis de la conductividad hidráulica, comparando los resultados de la modelación con resultados empíricos encontrados en la literatura. Luego se aumenta la cantidad de elementos en las simulaciones y la complejidad de los paquetes de esferas, pasando de modelos con un solo tamaño a paquetes de esferas uniformemente distribuidos. A este set de modelos se le cambian las condiciones de confinamiento y el valor de la polidispersión, se estudia el efecto de estos cambios en los valores de la conductividad hidráulica. También se caracteriza cualitativamente el esqueleto de suelo para una serie de granulometrías,se analiza la distribución de la fuerza promedio entre los granos finos y los granos gruesos. Se explora en formas de construcción de paquetes de suelo, buscando la mejor forma de recrear granulometrías inestables estudiadas en otros ensayos. Finalmente se crean 4 granulometrías reales a las cuales no es posible acoplar el flujo de fluido debido a sus características y a su distribución espacial. Se caracteriza la distribución porcentual de tensiones para obtener un gradiente hidráulico critico a partir de la relación entre las tensiones transportadas por los granos finos y las transportada por los granos gruesos.\
+
+Se logra realizar el modelo y con las simulaciones realizadas se caracteriza el comportamiento de la conductividad hidráulica para un tamaño de grano seleccionado y se observa la influencia del confinamiento y de la polidispersión, se propone una expresión para calcular la conductividad hidráulica en el rango de estudio. Se demuestra que la polidispersión provoca que la fuerza sea transportada de forma preferente por los granos gruesos. Por ultimo se caracteriza el estado tensional para distintas granulometrías, incluyendo 4 reales. Se encuentra una relación lineal entre el módulo de la tensión y el tamaño de diámetro y la existencia de una zona de dispersión para las granulometrías inestables, en donde existen granos finos con muy poca tensión y otros muy cargados. La envolvente de la dispersión es no-lineal y se relaciona con el gradiente hidráulico critico.
+\end{abstract}
+
+
+%%%%%%%%%%%%%%%%%%%% AGRADECIMIENTOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{dedicatoria}
+A la arcilla fundamental, Violeta Liz y Cristobal.
+%Una dedicatoria corta. Por ejemplo, \emph{A los giles buena onda de U-Campus}
+\end{dedicatoria}
+
+\begin{thanks}
+aki se ponen las gracias totales y teni que nombrar a todos los que lloran si no los nombras.
+\end{thanks}
+
+
+%%%%%%%%%%%%%%%%% INDICE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%SKT1
+% \cleardoublepage
+\clearpage
+\tableofcontents
+% \cleardoublepage
+\clearpage
+\listoftables
+% \cleardoublepage
+\clearpage
+\listoffigures
+\mainmatter
+\pagebreak
+
+%%%%%%%%%%%%%%%% INFORME %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%skt1
+%\input{conclu.tex}
+\pagebreak
+\input{capitulo0.tex}
+\pagebreak
+\input{capitulo1.tex}
+\pagebreak
+\input{capitulo2.tex}
+\pagebreak
+\input{capitulo3.tex}
+\pagebreak
+\input{capitulo4.tex}
+\pagebreak
+\input{capitulo5.tex}
+\pagebreak
+\input{conclu.tex}
+\newpage
+%dick for osss
+\pagebreak
+\newpage
+
+%%%%%%%%%%%%%%%% BIBLIOGRAFIA QL %%%%%%%%%%%%%%%%%%%%%03 03 456
+\nocite{*}
+\bibliographystyle{plainnat}
+%\bibliographystyle{apalike}
+%\bibliographystyle{authordate1}
+\bibliography{bibliografia}
+
+\pagebreak
+\input{poster_SOCHID.tex}
+\pagebreak
+\input{anexo1.tex}
+\pagebreak
+\input{anexo2.tex}
+\pagebreak
+\input{Informe3Dprinter.tex}
+\end{document}
+
+
+

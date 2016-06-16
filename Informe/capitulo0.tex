@@ -1,0 +1,73 @@
+\chapter{ Introducción} 
+\section{ Motivación}
+La escasez hídrica en el norte del país, los efectos del cambio climático en los ciclos hidrológicos de mediano y largo plazo y las grandes reservas de agua que se encuentran en los acuíferos, correspondientes a más del 30\% del agua dulce disponible en el planeta, hacen de inmediato que el estudio de los medios permeables sea un tema atractivo. Por otro lado la interacción entre flujo y partícula no se reduce solo al agua, industrias como las del petroleo y el gas natural se encuentran directamente relacionadas con el tema. También lo es la producción y almacenamiento de energía desde la escala geotérmica hasta escalas pequeñas como las \textit{Fuel cells}. Finalmente el comportamiento y estabilidad de los medios porosos se relaciona también con las obras civiles, ya sea en construcción de fundaciones y taludes, como en impermeabilizar presas u operar pozos de extracción de agua, entre otros.\\
+
+Desde el punto de vista físico, el paso de un flujo a través de un medio permeable produce varios efectos que han sido estudiados durante siglos y que actualmente aún son de interés. Cuando el medio permeable es atravesado por un fluido ocurre una interacción entre el flujo y las partículas que lo componen. El empuje y la transferencia de momentum puede producir que las partículas más finas se trasladen de su lugar inicial, estos procesos de erosión interna alteran la estabilidad del esqueleto de suelo. En suelos heterogéneos,  el esqueleto corresponde al camino principal de transmisión de esfuerzos asociado a los granos de mayor tamaño, mientras que las partículas de menor diámetro, susceptibles a erosión, transmiten una porción menor de esfuerzos.\\
+
+El foco de esta memoria de título será en medios granulares, los suelos reales no son homogéneos, por lo tanto su composición corresponde a más de un tamaño de grano, con una diversidad de tamaños de grano y distribuidos en distintas proporciones. No obstante la distribución de los granos y de la transmisión de los esfuerzos  no es de carácter totalmente aleatorio. Se ha demostrado que los granos más grandes transmiten la mayor cantidad de esfuerzos y los granos de menor tamaño sustentan el sistema de manera complementaria (\citealt{voivret2009multiscale}), lo que en conjunto con otros fenómenos como el \textit{interlocking} y la esfericidad, definen la estabilidad del suelo. Cuando estos suelos son cargados hidráulicamente puede ocurrir desplazamiento de los granos más pequeños conforme su distribución granulométrica y la magnitud del gradiente hidráulico aplicado lo permitan, todo esto producto de la interacción de los sólidos con el fluido (\citealt{galindo2013micro}). Con el fin de estudiar las consecuencias de esas interacciones, como la transferencia de momentum a los granos finos, es que se realiza este trabajo de título.\\
+
+En la actualidad es posible implementar una serie de métodos numéricos, que mediante algoritmos logran representar la realidad, ya sea resolviendo de forma explicita o implícita los fenómenos físicos resolviendo las ecuaciones teóricas que los describen o representando el comportamiento a través de conceptos análogos. En ese contexto es que se busca simular el suelo granular y el fluido acoplados a través de herramientas computacionales, para tener un laboratorio virtual en el cual realizar distintos sets de simulaciones que permitan obtener conclusiones sobre los efectos del flujo de fluido sobre los elementos de suelo.\\
+
+
+\section{ Objetivos}
+\subsection{ General}
+Realizar un modelo numérico 3D que caracterice la física de la interacción entre partículas y entre el flujo de fluido y las partícula de suelo granular utilizando el software de código abierto $\yad$. %el cual resuelven la interacción entre partículas de suelo con el Método de Elementos Discretos (DEM) y es posible acoplarlo con el método de elementos finitos (FEM), con el método de volúmenes finitos a escala de poros (PFV) o el método de Lattice Boltzman (LBM) para resolver la física del flujo de fluido.
+
+\subsection{ Específicos}
+\begin{enumerate}
+\item Realizar un modelo 3D de interacción entre las partículas, definiendo las distribuciones de granos y distintos esqueletos de suelo.\
+\item Estudiar la transferencia de carga en el suelo.\
+\item Acoplar las granulometrias de suelo granular con un dominio de flujo de fluido y someterlo a distintas condiciones de contorno.\
+\item Estudiar el comportamiento de la conductividad hidráulica sometida a distintas presiones de confinamiento para distintas distribuciones granulométricas.\
+\item  Ver los efectos que produce el paso de un flujo sobre el esqueleto del suelo.
+\end{enumerate}
+
+\section{ Metodología}
+\subsection{ Revisión Bibliográfica}
+Se revisarán trabajos realizados en $\yad$, estudios que relacionan la conductividad hidráulica y la permeabilidad con la porosidad y los tamaños de diámetro característico, como también información sobre la distribución de las fuerzas en suelos granulares. Dentro del estado del arte probablemente se encuentren trabajos que escapan del marco acotado en el que se realizará este trabajo de título, pero que de igual manera son importantes revisar.
+
+\subsection{ Comprender el funcionamiento de los software y revisión de los métodos de resolución que utilizan}
+Antes de realizar cualquier modelo, primero es importante conocer la física que explica estos fenómenos y cómo lo resuelven, qué métodos numéricos utilizan los modelos revisados en la literatura para saber las ventajas y problemas que se puedan presentar, como también la precisión con la que se puede trabajar y los requerimientos computacionales necesarios para realizar los cálculos. Para esto se revisará como funciona el método de elementos discretos (DEM), el método Lattice Bolztman (LBM), el método de elementos finitos (FEM) y el método de volúmenes finitos a escala de poros (PFV), además conocer el formato de los archivos que pueden ser exportados desde $\yad$, esto conlleva a un periodo de aprendizaje del uso del software. También es importante mencionar que con esto se definirá el tamaño de modelo que puede realizarse y sus características supeditado a las capacidades computacionales que se cuentan.\\
+
+
+\subsection{ Construcción del modelo}
+Se debe generar una distribución de granos 3D utilizando \yad. Una vez obtenido el modelo de suelo se debe acoplar con el dominio de fluido y permitir que ambas físicas interactúen entre sí, es decir, las ecuaciones de cuerpo rígido de los elementos de suelo con las ecuaciones que resuelvan la física del fluido. Se debe seleccionar uno de los métodos de acople, ya sea FEM, LBM o PFV.\\
+
+Una vez realizado el acople se debe acotar el modelo a la capacidad computacional disponible, definir los parámetros que se dejarán fijos y los que serán modificados. Definir la magnitud de las condiciones de borde, validar el modelo numérico con algún estudio existente y realizar múltiples modelaciones para recopilar datos de la conductividad hidráulica, porosidad e influencia en la estabilidad del suelo, entre otros.\\
+
+Se realizan modelos de pruebas con menos de 10 esferas, para verificar las leyes de contacto y las características físicas de las esferas, luego se trabaja con el orden de 300 esferas y se acopla el fluido. Para los estudios de polidispersión y confinamiento se trabaja con alrededor de 26.000 elementos de suelo y del orden de 26.000 de fluido. Por último para las granulometrías reales se alcanza el orden de los 100.000 a 300.000 elementos. Los tiempos de cómputo para un segundo de modelación pasan de minutos a un par horas, de un par de horas al orden de 13 horas, luego al orden de 60 horas para los de 26.000 elementos de solido más 26.000 elementos de fluido y del orden de 9 días para las granulometrías reales con 200.000 elementos.\\
+
+\subsection{ Análisis de Resultados}
+En esta etapa se analizan los resultados obtenidos de la modelación numérica. Se dará énfasis en buscar resultados con respecto al efecto de la porosidad, el confinamiento, un diámetro característico y la polidispersión en los valores de la conductividad hidráulica. También en la distribución de la fuerza y la tensión en el espacio y asociada al tamaño de grano. Dado que el modelo posee una interfaz en python, se pueden generar archivos con los datos que uno desee y definir \textit{objetos} que controlen algunas características y procesos de las modelaciones. $\yad$ también permite obtener archivos en formato VTK (https://es.wikipedia.org/wiki/VTK), por lo que el post proceso se trabajará en los software Paraview y en Matlab.\\
+
+\section{ Resultados Esperados}
+El principal resultado esperado de este trabajo de título es obtener un modelo numérico 3D que permita simular suelos granulares utilizando esferas y lograr acoplarlo con un dominio de fluido, para así tener el efecto que el flujo de fluido ejerce sobre el suelo y vice versa.\\
+
+Se espera validar el modelo comparando los valores de algún parámetro físico obtenido en función de los resultados que entrega la modelación con uno teórico o empírico que se encuentre en la literatura, como la conductividad hidráulica y poder concluir sobre su relación con la porosidad, la tensión de confinamiento, el tamaño de grano, la distribución granulométrica, entre otros.\\
+
+Finalmente se busca relacionar el efecto del paso del flujo con la estabilidad del suelo granular, sometido a distintas diferencias de presión y caudales. Se decide también trabajar solo con agua, para acotar los parámetros a variar, es decir, las densidades y viscosidades serán constantes. Tampoco existirán gradientes de temperatura ni de concentración.\\
+
+\section{ Organización del informe}
+%Para presentar las construcción del modelo y sus modificaciones con respecto al tiempo, incluir los análisis realizados a los distintos tipos de modelos y caracterizar el comportamiento de los fenómenos en estudio e
+El informe se ordena de la siguiente manera:\\
+
+\begin{itemize}
+\item \textbf{Introducción}, se plantea el problema en estudio y lo que se desea modelar, además de sus simplificaciones. Se definen objetivos, metodología y resultados esperados.\\
+
+\item \textbf{Revisión Bibliográfica}, se revisan los métodos numéricos utilizados para modelar el problema en cuestión, sus características y la factibilidad de acople. También se introducen conceptos teóricos como la conductividad hidráulica, la polidispersión y la distribución de esfuerzos en los paquetes de suelo.\\
+
+\item \textbf{Validación del Modelo}, se explica a grandes rasgos la arquitectura del modelo, la forma de acoplar el fluido con el sólido y los supuestos para que el acople tenga validez. También se valida el modelo para el cálculo de la conductividad hidráulica comparando los resultados de modelos que poseen un solo tamaño de grano con resultados empíricos.\\ 
+
+\item \textbf{Conductividad Hidráulica, Tamaño del Grano, Porosidad y Confinamiento}, en este capítulo se realizan modelos con tamaños de granos uniformemente distribuidos y se varían las condiciones de confinamiento y polidispersión. Se analiza la influencia de estos cambios en los valores de la porosidad y la conductividad hidráulica.\\
+
+\item \textbf{Esfuerzos del Esqueleto de suelo y efectos del flujo}, en este capitulo se caracteriza cualitativa y cuantitativamente la distribución de fuerzas y esfuerzos en distintos tipos de granulometrías. Se explora además en distintos métodos de construcción de paquetes de suelo.\\
+
+\item \textbf{Relación entre Distribución de tensiones y el gradiente hidráulico crítico}, se estudia la distribución de las tensiones en 4 granulometrías reales, estudiadas en laboratorio y se busca relacionar su estado tensional con el gradiente hidráulico crítico.\\
+
+\item \textbf{Conclusiones}, se discute sobre el logro de los objetivos planteados, se concluye acerca de los resultados obtenidos en cada apartado y se plantea un trabajo futuro.\\
+
+\item \textbf{Anexos}, se presentan algunos gráficos utilizados para confeccionar algunas figuras presentadas en el capitulo 5, se adjunta póster presentado en el XXII Congreso Chileno de Ingeniería Hidráulica y un trabajo dirigido en el cual a partir de un modelo numérico se logra imprimir un medio permeable utilizando impresoras 3D.\\
+
+\end{itemize}
+
+

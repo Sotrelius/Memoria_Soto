@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: memoria.aux
+The style file: plainnat.bst
+Database file #1: bibliografia.bib
+Warning--can't use both volume and number fields in catalano2013pfv
+Warning--empty year in moffat2014hydromechanical
+Warning--empty year in moffat2014hydromechanical
+Warning--empty journal in tosequential
+Warning--empty year in tosequential
+Warning--empty year in tosequential
+You've used 23 entries,
+            2773 wiz_defined-function locations,
+            738 strings with 8895 characters,
+and the built_in function-call counts, 10817 in all, are:
+= -- 968
+> -- 599
+< -- 13
++ -- 203
+- -- 180
+* -- 921
+:= -- 1649
+add.period$ -- 69
+call.type$ -- 23
+change.case$ -- 128
+chr.to.int$ -- 23
+cite$ -- 52
+duplicate$ -- 492
+empty$ -- 904
+format.name$ -- 213
+if$ -- 2247
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 24
+newline$ -- 122
+num.names$ -- 92
+pop$ -- 250
+preamble$ -- 1
+purify$ -- 106
+quote$ -- 0
+skip$ -- 360
+stack$ -- 0
+substring$ -- 473
+swap$ -- 42
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 248
+warning$ -- 6
+while$ -- 105
+width$ -- 0
+write$ -- 299
+(There were 6 warnings)

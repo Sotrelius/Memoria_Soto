@@ -1,0 +1,218 @@
+\chapter{ Conductividad hidráulica, tamaño del grano, porosidad y confinamiento} 
+\section{ Introducción}
+En este capítulo se presentan comparaciones de los resultados de las modelaciones sujetos a variaciones de algunos parámetros y también con algunas de las ecuaciones empíricas revisadas en el capítulo anterior. Los parámetros a comparar son la conductividad hidráulica y la porosidad en función de la polidispersión del tamaño del grano, representado con el parámetro denominado Sd, sometidos a distintos niveles de confinamiento y para distintos tamaños de radio promedio. 
+Todo lo anterior asumiendo como válido el acople realizado en el capítulo anterior, para representar suelos sintéticos bajo el supuesto que se comportan de manera similar a los suelos granulares.\\
+
+De la misma forma  que los diámetros máximos y mínimos del capitulo anterior, se define el radio mínimo como $R_{min}=R_{mean}-Sd\cdot R_{mean}$ y el radio máximo  $R_{max}=R_{mean}+Sd\cdot R_{mean}$. Combinando las definiciones se obtiene: 
+
+\begin{equation}
+Sd= \frac{(R_{max}-R_{min})}{(R_{max}+R_{min})}
+\label{eq:Sd}
+\end{equation}\\
+
+Los radios de los granos para estos modelos se encuentran uniformemente distribuidos en el intervalo $[R_{min},R_{max}]$, determinado por el valor de $R_{mean}$ y Sd=[0.0, 0.17, 0.34, 0.51, 0.68]. Con esto se busca verificar la influencia de la polidispersión y el confinamiento en el valor de la conductividad hidráulica.
+ 
+ 
+\section{ Modelos de mayor tamaño}
+Al tener granulometrías más extendidas las dimensiones de los modelos deben aumentar, para que el paquete de esferas contenga todos los diámetros del intervalo en estudio. Se impone un ancho basal de 45 veces el radio promedio y una  altura igual a 80 veces $R_{mean}$. Con estas dimensiones, los volúmenes simulados poseen en promedio del orden de 26.000 partículas, lo que produce  tiempos de cómputo mayores.\\
+
+Existen algunas diferencias en las condiciones iniciales de estos modelos con respecto a los presentados en el apartado anterior. Existe un aumento en la diferencia de presión impuesta, para que el caudal resultante aumente, se utiliza otro ángulo de fricción acorde a los materiales granulares que se busca representar y la granulometría del suelo es uniformemente distribuida en torno a un radio promedio. Por otro lado parámetros como la viscosidad del fluido, el modulo de Young y el coeficiente de Poisson, la densidad del fluido y de los sólidos conservan el valor utilizado en los modelos de validación tal como se observa en el Cuadro \ref{tbl:dat1}.
+
+\begin{table}[H]
+\centering
+\caption{Parametros de los modelos de polidispersos.}
+\begin{tabular}{l r r r }
+\hline
+\multicolumn{4}{|c|}{Condiciones de los modelos }\\
+\hline \hline 
+Diferencia de presión & \Delta p & 10 & [Pa] \\
+Viscosidad & \mu & 0.001 & [Pa \cdot s] \\
+Fuerza de gravedad & g & 9.81  & [$m \cdot s^{-2}$] \\
+Densidad esferas & \rho_s & 2600 & [Kg \cdot m^-3]\\
+Densidad fluido & \rho_h & 1000 & [Kg \cdot m^-3]\\
+Ancho Basal & D & 45 \cdot Rmean & [m]\\
+Altura Inicial paquete de esferas & H & 80 \cdot Rmean & [m]\\
+Modulo de Young & E & 1e6 & [Pa]\\
+Coeficiente de Poisson & \nu & 0.5 & [-]\\
+Ángulo de Fricción & \phi & 30 & [°]\\
+\hline
+\end{tabular}
+\label{tbl:dat1}
+\end{table}
+
+\section{ Resultados de los modelos}
+
+\subsection{ Conductividad hidráulica y tamaños característicos}
+Se presenta la respuesta de la conductividad hidráulica para distintos radios promedios y se verifica si es consistente con la teoría. También se estudia el comportamiento del diámetro característico $d_{20}$ en función del parámetro Sd y se presenta la curva granulométrica correspondiente al set de modelos realizados.\\
+
+Se realizan 30 simulaciones, 6 diámetros distintos y 5 valores de Sd. La Figura \ref{fig:KvSdRad} muestra los valores estimados de conductividad hidráulica en función del parámetro Sd, para una presión de confinamiento de 2,7 [kPa] y distintos diámetros medio. En acuerdo con la teoría, el valor de la conductividad hidráulica depende de forma directa del diámetro medio, por lo tanto a diámetros más grandes mayor valor para la conductividad hidráulica.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.90\textwidth]{Capitulo3/KvSdRad}
+\caption{Conductividad hidráulica vs Sd, para distintos tamaños de radio promedio, los diámetros se muestran en la parte superior en [m].}
+\label{fig:KvSdRad}
+\end{figure}
+
+De aqui en adelante se trabaja con el $d_{mean}=6 [mm]$. En la Figura \ref{fig:d20vSdConft} en tanto se observa que el diámetro $d_{20}$  posee un comportamiento de tipo cuadrático en función al aumento de Sd, el valor de $d_{20}$ es independiente del nivel de confinamiento al que se encuentra sometido y guarda relación sólo con la construcción geométrica del paquete de suelo. El menor valor de $d_{20}$ ocurre para un valor de Sd que se encuentra entre 0,17 y 0,34. Luego de pasar por el vértice, el valor de  $d_{20}$ aumenta.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Capitulo3/d20vSdConft}
+\caption{D20 vs Sd, para distintos valores de la presión de confinamiento [Pa].}
+\label{fig:d20vSdConft}
+\end{figure}
+
+La figura \ref{fig:granulometrySD} muestra la distribución granulométrica para un radio promedio $R_{mean}=3 [mm]$ y distintos valores de Sd, la figura explica el comportamiento cuadrático y el por qué de la ubicación del mínimo valor de $d_{20}$.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=1\textwidth]{Capitulo3/granulometrySD}
+\caption{Curva granulométrica para distintos valores de Sd.}
+\label{fig:granulometrySD}
+\end{figure}
+
+\subsection{ Modelos numéricos y resultados empíricos}
+La Figura  \ref{fig:kvSd2743R} compara los resultados de las simulaciones en medios sometidos a una presión de confinamiento de 2,7 [kPa], con las fórmulas empíricas de Russell Shepherd para suelos granulares de textura madura, Hazen, Beyer, Terzaghi y Slichter para distintos valores de Sd=[0.0, 0.17, 0.34, 0.51, 0.68]. Se observa un comportamiento creciente de la diferencia entre los resultados del modelo y la ecuación propuesta por Russell. Esto se debe a que la presión de confinamiento modelada es baja y el medio se comporta como una arena sin compactar que se deposita por gravedad.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.89\textwidth]{Capitulo3/kvSd2743RMK}
+\caption{Conductividad hidráulica vs Sd, Tensión de confinamiento de 2.7 [KPa].}
+\label{fig:kvSd2743R}
+\end{figure}
+
+En la \ref{fig:kvSd27430R} se observa cómo el aumento de la presión de confinamiento hace que los resultados de las modelaciones se ajuste a la formula de Beyer y a la de Hazen.
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.89\textwidth]{Capitulo3/kvSd27430RMK}
+\caption{Conductividad hidráulica,  Tensión de confinamiento de 27.4 [KPa]}
+\label{fig:kvSd27430R}
+\end{figure}
+
+El criterio de elección de las expresiones con las que se comparan los valores obtenidos con las modelaciones fue  mantener la ecuacion para suelos granulares de textura madura dado la similitud con los resultados del modelo y las condiciones impuestas son similares al apartado anterior. Por su parte la ecuación de Hazen, Beyer, Slichter y Terzaghi se escogen por encontrarse más cercanas a los resultados de los primeros modelos y por corresponder a arenas finas con tamaños de diámetro dentro del rango modelado. En la Figura  \ref{fig:kvSd27430R} se observa que  cuando la presión de confinamiento aumenta, los valores de conductividad decrecen acercándose a los valores obtenidos con las formulas empíricas obtenidas a través de  ensayos realizados en los laboratorios. Esto es producto de tener similar tensión de confinamiento, entre 10 y 100 [KPa] para los ensayos de laboratorio.
+
+\subsection{ Porosidad y confinamiento}
+Se presenta el comportamiento de la porosidad en función de Sd para los distintos  escenarios modelados, esto con la intención de cuantificar a qué niveles de confinamiento comienza a disminuir de manera significativa el valor de la porosidad y por tanto ser un término influyente en el valor de la conductividad hidráulica. Las presiones de confinamiento utilizadas se obtienen de aplicar una fuerza F=[ 0.5, 5, 50, 100, 500] [N] en la pared superior de los permeámetros. Se escoge un diámetro fijo de 6 [mm] por lo que las dimensiones de los modelos que se comparan a distintos confinamientos son las mismas, por lo tanto  las presiones de confinamiento son P=[27, 274, 2743, 5486, 27430] [Pa] respectivamente. En la Figura \ref{fig:nvSdconf} se aprecia el comportamiento de la porosidad para distintos valores de Sd y sometido a distintas presiones de confinamiento. Se observa de forma clara como el aumento del confinamiento produce una disminución en los valores de la porosidad.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.89\textwidth]{Capitulo3/nvSdConf}
+\caption{Porosidad vs Sd, para distintos valores de la presión de confinamiento, tal como lo muestra la leyenda en la parte superior.}
+\label{fig:nvSdconf}
+\end{figure}
+
+En la Figura  \ref{fig:KvSdConfR} se observa cómo el aumento del confinamiento es un factor de importancia en los valores de la conductividad hidráulica. Esto se produce debido a que la presión de confinamiento aplicada afecta los valores de la porosidad ya que estos parámetros se encuentran inversamente relacionados. Tal como ya se mencionó la porosidad es uno de los factores que escalan el valor de la conductividad hidráulica. Es interesante cómo los resultados de las modelaciones se ajustan a las ecuaciones de  Beyer y Hazen para tensiones del orden de los 25 [KPa]. Aumentos en el confinamiento de tres órdenes de magnitud producen una disminución de alrededor de un 17\% en la porosidad y de aproximadamente 60\% en la conductividad hidráulica.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.89\textwidth]{Capitulo3/KvSdConf}
+\caption{Conductividad hidráulica vs Sd, para distintos tensiones de confinamiento [Pa].}
+\label{fig:KvSdConfR}
+\end{figure}
+
+Al comparar las Figuras  \ref{fig:KvSdConfR} y \ref{fig:nvSdconf} se puede notar una similitud en su comportamiento con respecto al confinamiento, ambas se relacionan de manera inversa, es decir conforme aumenta el confinamiento disminuye la porosidad y por consecuencia también lo hace la conductividad hidráulica. Su comportamiento en función de Sd en cambio es diferente, la conductividad hidráulica crece en función de Sd, mientras que la porosidad disminuye. Por otro lado al comparar las Figuras \ref{fig:d20vSdConft} y \ref{fig:KvSdConfR} se observa que para un mismo confinamiento el comportamiento de $d_{20}$ y $K$ en función de Sd es similar y creciente desde $Sd=0.34$. La porosidad para cada nivel de confinamiento es muy similar y no se aleja de un valor promedio, por lo tanto para el rango de Sd estudiado, proporciona la magnitud de la conductividad hidráulica, es decir, para el rango de polidispersión estudiado la porosidad determina más el valor de la conductividad hidráulica que el diámetro característico. Debido a la distribución granulométrica que entrega el modelo para los distintos valores de Sd, una vez superado Sd=0.68 el aumento en los valores del diámetro característico produce que este comience a dominar por sobre la porosidad que prácticamente no varía.\\
+ 
+El modelo permite obtener valores correctos de la conductividad hidráulica si los parámetros de entrada como el confinamiento de la muestra, el modulo de Young, ángulo de fricción, Sd, radio promedio entre otros se definen de manera correcta. Lo importante es lograr replicar de mejor manera las condiciones a las que esta sometido el suelo. Se debe tener en cuenta que las correlaciones realizadas por los autores citados se encuentran en escala logarítmica y los resultados entregados se encuentran en escala lineal, .
+
+\section{Expresión propuesta}
+Una vez definido el diámetro característico $d_{20}$ y la porosidad como los responsables de la variación del valor de la conductividad hidráulica, teniendo en cuenta la forma de las curvas obtenidas y que existen fórmulas empíricas que relacionan $K$ con $n$ y un diámetro característico es que se realiza un ajuste bilineal, teniendo en cuenta que:
+
+\begin{equation}
+K=\alpha^{'} n^a d_{20}^b
+\label{eq:bil}
+\end{equation} 
+
+Donde $n$ corresponde a la porosidad, $\alpha$ a una constante a determinar, $a$ y $b$ coeficientes a determinar y $K$ la conductividad hidráulica. Considerando que se tiene un set de datos de la forma:
+
+\begin{equation}
+log(K_i)=log(\alpha^{'}) + a \cdot log(n_i) +b \cdot log(d_{20i})
+\label{eq:bils}
+\end{equation}
+
+En donde el subindice $i$ representa el resultado de una modelación distinta. Por lo tanto el problema a resolver es el siguiente:
+
+\begin{equation}
+\left[ \begin{array}{c}
+K_{i}\\
+:\\
+:\\
+K_{n}
+\end{array} \right] =
+\left[ \begin{array}{ccc}
+1 & log(n_i) & log(d_{20i}) \\
+: & : & : \\
+: & : & : \\
+1 & log(n_n) & log(d_{20n}) 
+\end{array} \right] \cdot
+\left[ \begin{array}{c}
+log(\alpha)\\
+a\\
+b
+\end{array} \right]
+\label{eq:bilm}
+\end{equation}
+
+Resolviendo el problema de manera matricial, se obtiene:
+
+\begin{equation}
+\vec{Y}=X \cdot \vec{b}
+\end{equation}
+
+En donde $\vec{Y}$ corresponde al vector con los valores de conductividad hidráulica obtenidos con el modelo, $X$ a la matriz con los coeficientes obtenidos con los datos de los modelos y $\vec{b}$ el vector con los coeficientes buscados. Luego la solución corresponde a:
+
+\begin{equation}
+\vec{b}=X^{-1} \cdot \vec{Y}
+\end{equation}
+
+En la figura \ref{fig:bl1} se observa en rombo los modelos realizados para distintos niveles de confinamiento y Sd=[0.0 0.17 0.34 0.51 0.68], en  linea continua la ecuación propuesta, en linea punteada la ecuación de Slichter ambas para valores de n=[0.40 0.35 0.30 0.25 0.20].  
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=1\textwidth]{Capitulo3/bilinial1f}
+\caption{Conductividad hidráulica vs Sd, para distintos tensiones de confinamiento [Pa].}
+\label{fig:bl1}
+\end{figure}
+
+Se obtienen los siguientes valores de los coeficientes, $\alpha^{'}=46526000$, $a = 3.57$ y $b=1,98$, se utiliza el formato de las ecuaciones del cuadro \ref{tbl:reseq1} por lo que $\alpha=474 \frac{\rho g}{\mu}$ . Con lo que la expresión propuesta para $K$ en función de la porosidad y el diámetro característico $d_{20}$ obtenida con los modelos numéricos realizados es la siguiente:
+
+\begin{equation}
+K=474 \frac{\rho g}{\mu} n^{3.57} d_{20}^{1.98}
+\end{equation}
+
+De la Figura \ref{fig:bl1} no se pueden obtener muchas conclusiones, debido a que las porosidades son distintas para la misma tensión de confinamiento, pero se observa cómo el confinamiento y la disminución de la porosidad como consecuencia, son los factores de mayor importancia para el rango de Sd en estudio. En base a esta observación es que se realiza un set de modelaciones para porosidad fija y el mismo rango de Sd.\\
+
+En la Figura \ref{fig:bl2}  se muestra los resultados de modelos con los mismos valores de los parámetros físicos, pero con porosidades fijas de n=[0.40 0.35 0.30 0.25 0.20]. Se propone una ecuación a través de ajuste bilineal para los resultados obtenidos graficado en linea continua y en linea punteada la ecuación de Slichter. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{Capitulo3/bilinial2f}
+\caption{Conductividad hidráulica vs Sd, para distintos tensiones de confinamiento [Pa].}
+\label{fig:bl2}
+\end{figure}
+
+Se obtienen los siguientes valores de los coeficientes, $\alpha^{'}=19779000$, $a = 3.65$ y $b=1,82$, analogo al caso anterior $\alpha=201 \frac{\rho g}{\mu}$ . Con lo que la expresión propuesta para $K$ en función de la porosidad y el diámetro característico $d_{20}$ obtenida con los modelos numéricos realizados es la siguiente:
+
+\begin{equation}
+K=201 \frac{\rho g}{\mu} n^{3.65} d_{20}^{1.82}
+\end{equation}
+
+De la Figura \ref{fig:bl2} se puede afirmar que el ajuste concuerda con los resultados del modelo, que la expresión propuesta corresponde se ajusta mejor en las vecindades del centro de gravedad de las mediciones. También se observa de forma clara el efecto de la variación de la porosidad. En el gráfico se pierde el efecto del diámetro característico para porosidades pequeñas, el cual es menor conforme disminuye la porosidad.\\
+
+Las afirmaciones anteriores se sustentan en el siguiente análisis, dada la ecuación propuesta y teniendo en cuenta que $d_{20}, n < 1$, la razón entre el efecto de la porosidad y el del diámetro característico se expresa como:
+
+\begin{equation}
+\frac{n^{3.65}}{d_{20}^{1.82}} \Longrightarrow  \frac{\varphi \cdot 10^{-\eta}}{\beta \cdot 10^{-d}}= \varphi/\beta \cdot 10^{d-\eta}
+\end{equation}
+
+En donde $\varphi$ y $\beta$ son constantes $\eta$ y $d$ los exponentes asociados a la porosidad y al $d_{20}$ respectivamente. Por otro lado reemplazando de forma análoga la ecuación propuesta se obtiene que:
+
+\begin{equation}
+K=\gamma n^a d_{20}^b  \Longrightarrow K=\varphi/\beta  \cdot 10^{-\eta -d}
+\end{equation}
+
+Con estos dos elementos se plantea que si $d-\eta >0$ entonces $d>\eta$ y por lo tanto el diámetro característico es el que domina el fenómeno.\\
+
+Para el rango estudiado el valor de $\eta$ logra aumentar una unidad, lo que significa que la influencia de la porosidad logra variar un orden de magnitud la conductividad hidráulica. Para conseguir el mismo efecto, el diámetro característico debe variar medio orden de magnitud. Por lo tanto, si bien el diámetro característico es quien domina el fenómeno, el rango de estudio no es suficiente para mostrarlo gráficamente.
+

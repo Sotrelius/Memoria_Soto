@@ -1,0 +1,221 @@
+\chapter{ Revisión Bibliográfica} 
+\section{ Introducción}
+
+Del total de agua dulce disponible en el planeta cerca del 68\% se encuentra en los glaciares y aproximadamente un 30\%  se encuentra en el subsuelo (\textit{https://upload.wikimedia.org/wikipedia/ commons/c/c1/ Distribucion\_del\_agua\_terrestre2.jpg}). Al ser el agua un recurso vital para la existencia humana su extracción y gestión es de carácter estratégico. Comprender la interacción entre un flujo de fluido y las partículas permite comprender de mejor manera los ciclos de recarga, tiempos de residencia y extracción, mejorando su uso y aprovechamiento, todo esto en un contexto nacional de crisis hídrica y un panorama de cambio climático global.\\ 
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.57\textwidth]{Capitulo1/esq1.png}
+\caption{Distribución del agua en el planeta.}
+\label{fig:esq1}
+\end{figure}
+
+Por otra parte, industrias que generan una enorme cantidad de recursos económicos e influencia en la economía a escala mundial, tales como la del gas natural y del petróleo, guardan directa  relación con la interacción entre un fluido y partículas en medios permeables, ya que es el mismo fenómeno físico, pero el fluido posee distinta densidad y viscosidad que el agua, por lo que existe otro motivo que da relevancia al tema en estudio (\textit{http://blogs.discovery.com/.a/6a00d8341bf67 c53ef01676946c5f6970b-800wi}). En cuanto a fenómenos físicos y obras civiles  existen aplicaciones relacionadas con la erosión en el suelo debido al paso de un flujo, la estabilidad de taludes, la filtración de partículas finas hacia pozos, la fluidización entre otros.\\
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.58\textwidth]{Capitulo1/esq.eps}
+\caption{Esquema de medio permeable al cual se le induce un flujo debido a la extracción de gas natural, agua o petroleo.}
+\label{fig:esq2}
+\end{figure}
+
+El problema en estudio fue planteado por primera vez en el siglo XIX por Henry Darcy. Darcy descubrió que el paso del flujo por un medio permeable produce una pérdida de carga,  que depende del área de la sección, el largo del tramo, el caudal y un parámetro el cual denominó permeabilidad (permeabilidad de Darcy), y que en la actualidad se conoce como conductividad hidráulica. Darcy sentó las bases del estudio de los flujos en medios permeables en el apéndice del informe de la red de distribución de agua potable de la ciudad de Dijon, pero no logró explicar cómo es que ocurre esa pérdida de carga.\\
+
+La conductividad hidráulica corresponde a la facilidad con la que un medio deja pasar agua a través de él por unidad de área normal a la dirección del flujo, posee unidades de velocidad [L/T] y en la actualidad existen dos tipos: la conductividad hidráulica darciana o lineal (KD) y la conductividad hidráulica turbulenta (KT). Por su parte, la permeabilidad es una característica del material y corresponde a la capacidad de éste de permitirle a un flujo que lo atraviese sin alterar su estructura interna, posee unidades de superficie $[L^2]$. Para ser permeable el material debe ser poroso y tener los poros conectados entre sí. La permeabilidad, también conocida como ``Permeabilidad intrínseca'' (k) se relaciona con la conductividad hidráulica o ``permeabilidad de Darcy'' (K) de la siguiente forma $k=K\frac{\mu}{g\rho}$, en donde $\mu$ corresponde a la viscosidad del fluido, $g$ a la aceleración de gravedad y $\rho$ a la densidad del fluido.\\
+
+\pagebreak
+
+Otro concepto importante de definir y que se utilizará en adelante es la polidispersión. En los medios granulares  es una propiedad análoga a la polidispersión en polímeros,   pero en lugar de medir la diferencia de masa con respecto a la masa promedio, lo hace con respecto al diámetro promedio, tal como se observa en (\ref{eq:PDI}).\\
+
+\begin{equation}
+ PDI= \frac{\sum_{i=1}^{n}{(D_{i}-2*R_{mean})^2}}{(n)} \hspace{5 mm} (PolyDispersion \hspace{2 mm} Index)
+\label{eq:PDI}
+\end{equation}
+
+En donde $D_i$ es el diámetro de la partícula, $R_{mean}$ es el radio promedio y $n$ el número de partículas del paquete de suelo.\\
+
+Actualmente, el aumento de la capacidad computacional permite utilizar herramientas de modelación numérica para simular los procesos que ocurren en la realidad. Es posible reproducir la física de este tipo de problemas a escalas de poros. Para simular el problema en estudio se debe tener en cuenta la diferencia de escala entre el problema de cuerpo rígido de los sólidos y el elemento de fluido, por lo que al momento de acoplar ambos fenómenos se debe poner atención a los tamaños de mallado y en como los elementos de fluido interactúan con la geometría compleja del medio poroso.\\
+
+Dentro de los métodos de resolución numéricos de ecuaciones relacionados con los medios porosos y el flujo de fluidos se encuentra el Método de elementos discretos (DEM), el método de Lattice Boltzmann (LBM), el método de los elementos finitos (FEM), el método de volúmenes finitos (FVM), entre otros. Estos métodos no son nuevos y algunos datan incluso de la década 1940, logrando ser implementados conforme el aumento de las capacidades de cómputo ha ido avanzando en las últimas décadas y se utilizan para modelar distintos fenómenos físicos, además del problema en estudio.\\
+
+\section{Método de elementos Discretos (DEM)}
+Corresponde a una representación del dominio como la suma de elementos, es decir, cada elemento del mallado corresponde a un elemento en el dominio. La formulación de este método se ha centrado en el uso de círculos para las simulaciones 2D y  esferas para 3D. En palabras simples el DEM \textit{(Discrete Elements Method)}, utilizado para los elementos de suelo, consiste en resolver las ecuaciones de movimiento para cuerpos rígidos expresados en forma matricial, los cuales interactúan entre sí mediante choques inelásticos y sometidos a campos de aceleración, en los que ocurren transmisiones de fuerzas y de momentum.\\
+
+Existen distintas implementaciones del DEM, pero en términos generales consisten en crear las esferas o círculos según corresponda mediante algún método que respete las posiciones y dimensiones que se desean. Cada elemento es circunscrito en una geometría denominada rango de detección y se activan los algoritmos de detección, los cuales derivan de algoritmos existentes en distintas librerías de GNU y modelos realizados anteriormente. Estos algoritmos logran diferenciar los potenciales contactos, la ausencia de contactos y los elementos en contacto. Con lo anterior se cumplen dos objetivos, el primero es crear las interacciones entre partículas, mientras que el segundo es reducir costos computacionales y procesar una menor cantidad de datos (ya que solo se calculan las interacciones y las potenciales interacciones). Una vez creada la interacción entre las partículas otro algoritmo identifica cuan profunda es la interacción aplicando las leyes de choque inelástico. A su vez existen algoritmos y leyes físicas escritas en códigos que actualizan y hacen funcionar los campos de aceleración que se asignan al dominio. Como todo método de resolución numérica necesita que se definan distintos parámetros a los elementos tales como coeficientes de rigidez normal K$_n$ y tangencial K$_T$, para obtener la magnitud de las fuerzas de contacto, coeficiente de Poisson, ángulo de fricción, entre otros. Detalles específicos de la formulación DEM que se utilizará se encuentra en  (\citealt{vsmilauer2010yade}) y en (\citealt{chareyre2012pore}), para mayor claridad del lector $\yad$ recopila una serie de librerias de GCC \textit{(GNU compiler Collection)}, OpenMP (en donde ya existe una formulación DEM), entre otras, mejorando el funcionamiento y eficiencia cambiando algunos algoritmos de detección e interacción y permitiendo que C++ converse con Python.\\
+
+En la Figura \ref{fig:temp} en (a) se observa un ejemplo de algoritmo de detección, en donde se observa la geometría circunscrita. En (b) se muestra el contacto entre los elementos, existe un coeficiente de elasticidad normal y tangencial para los choques, además existe un coeficiente de amortiguamiento.\\
+
+\begin{figure}[htb]
+\centering
+\subfigure[Algoritmo de detección] {\includegraphics[width=0.47\textwidth]{Capitulo1/DEM1.png}}
+\subfigure[Contacto entre elementos.] {\includegraphics[width=0.47\textwidth]{Capitulo1/DEM2.png}}
+\caption{Esquema de interacción entre partículas y algoritmo de detección de contacto, YADE formulation  2010.}
+\label{fig:temp}
+\end{figure}
+
+
+\section{Método de Lattice Boltzman (LBM)}
+Se ha utilizado $\yad$ acoplado con este método (\citealt{han2007coupled}), para estudiar la erosión por contacto (\citealt{galindo2013micro}) y para estudiar la erosión debido al \textit{piping} (\citealt{lomine2013modeling}). A diferencia de los demás métodos que se han mencionado, el LBM \textit{(Lattice Bolztman Method)}  no es un método CFD \textit{(Computational Fluid Dynamics)} convencional. No resuelve las ecuaciones de Navier-Stokes (EDPs), sino que la ecuación de Lattice Bolztman (\citealt{succi2001lattice}). El LMB discretiza el fluido en partículas que se propagan mediante choque.  Para 2D discretiza el dominio en celdas cuadradas que poseen un nodo en cada vértice, uno en cada punto medio de sus lados y uno en el centro (D2Q9) y para 3D en celdas cúbicas que tienen un nodo en cada vértice y uno en cada cara (D3Q15).  Funciona realizando conservación de masa (número de partículas), momentum y energía, antes y después de las colisiones. El LBM se descompone en dos fases, una de colisión correspondiente a (\ref{eq:col}) y otra de propagación (\ref{eq:tra}).\\
+
+\begin{equation}
+f_i^t(\vec{x},t^+)=f_i(\vec{x},t)-\frac{1}{\tau}(f_i(\vec{x},t)-f_i^{eq}(\vec{x},t))
+\label{eq:col}
+\end{equation}
+
+\begin{equation}
+f_i^t(\vec{x}+\vec{e_i}\delta_t,t+\delta_t)=f_i^t(\vec{x},t+\delta_t)
+\label{eq:tra}
+\end{equation}
+
+En donde $f_i^t(\vec{x},t)$ corresponde a la proporción de partículas con velocidad $\vec{e_i}$ moviendose en la dirección del nodo i situado en la posición $\vec{x}$ para un tiempo $t$, $\vec{e_i}$ corresponde a una velocidad discreta definida hacia cada nodo de la malla, $t^+$ a un tiempo intermedio después de la colisión $(t < t^+ < t+\delta t )$, $f_i^{eq}(\vec{x},t)$ a la distribución de equilibrio para un fluido newtoniano y $\tau$ a un parámetro adimensional de relajación del tiempo. (\citealt{lomine2013modeling}).\\
+
+\section{Método de Volumenes Finitos a escala de poros (PFV)}
+Se ha utilizado en modelos a escala de poros de interacción entre flujo y partículas acoplado con $\yad$ (\citealt{catalano2013pfv}; \citealt{chareyre2012pore}). Discretiza un dominio continuo en una serie de elementos de volumen que contienen información (tetraedros).  Cada elemento actúa como un nodo y su solución depende de la información de los 4 elementos contiguos. Bajo el supuesto que el fluido se encuentra en un medio permeable, el PFV construye tetraedros con vértices en el centro de las esferas que lo rodean. En cada elemento se realiza un balance de masa utilizando el teorema de la divergencia en (\ref{eq:div}). Este balance iguala la variación de volumen con la sumatoria de caudales en las 4 caras del elemento (\citealt{catalano2013pfv}).\\
+
+\begin{equation}
+ \dot{V_i^f}= \int_{S_{ij}}{(u-v)\cdot nds}=\sum_{j=j_1}^{j_4}q_{ij}=\sum_{j=j_1}^{j_4}{\frac{g_{ij}}{l_{ij}}(p_i-p_j)}
+\label{eq:div}
+\end{equation}
+
+En donde $\dot{V_i^f}$ corresponde a la variación de volumen, $(u-v)$ a la velocidad relativa del fluido con el sólido, $S_{ij}$ al área de intercambio de flujo con los tetraedros adyacentes, $n$ al vector normal a la superficie, $ds$ a un diferencial de superficie, $q_{ij}$ al caudal intercambiado en cada cara, $(p_i-p_j)$ a la diferencia de presión local, $l_{ij}$ a la distancia euclidiana entre los vértices de Voronoi asociados a cada poro y $g_{ij}$ es un término propuesto que expresa la conductividad hidráulica del dominio.\\
+
+\begin{equation}
+g_{ij}=\frac{S_{ij}^f Rh_{ij}^{2}}{2\mu}
+\label{eq:div2}
+\end{equation}
+
+En donde $S_{ij}^f$ es el área ocupada por el fluido en la cara $S_{ij}$, $Rh_{ij}$ es el radio hidráulico y $\mu$ es la viscosidad del fluido.\\
+
+\section{$\yad$}
+El año 2010 se publica  $\yad$ \textit``Yet Another Dynamics Engine'' (\citealt{vsmilauer2010yade})  proyecto desarrollado desde hace unos años antes  (\citealt{vsmilauer2006splendors}). Es un \textit{``open source''} extensible que está programado en C++ enfocado al estudio de la geomecánica a escala de poros. Tiene la capacidad de modelar esferas con gran variedad de características, las cuales pueden ser sometidas a leyes globales, como campos de aceleración e interacción con cuerpos en movimiento. Soluciona las ecuaciones de cuerpo rígido para los elementos representando choques inelásticos entre ellos. Además de tener licencia gratuita, es posible acceder al código fuente y modificarlo según sean las características y complejidad del problema a abordar. Para la interfaz gráfica, la construcción del modelo y los trabajos de  postproceso utiliza lenguaje de Python. Posee una gran variedad de clases y herramientas.\\
+
+Para solucionar el problema del flujo es posible acoplar $\yad$ con otros paquetes como OpenFOAM. Se revisaron dos acoples entre flujo y partícula que se han construido con $\yad$, estos son DEM-PFV y DEM-LMB, estos son objetos escritos en lenguaje de python que permiten extender el DEM desarrollado por $\yad$. Los resultados que se obtienen son el cambio de posición y rotación de las partículas debido al efecto del flujo y a la interacción entre partículas. Al mismo tiempo  se obtienen los efectos en el flujo debido al movimiento de las partículas.\\
+
+Para comprender la creación de modelos, es importante conocer a grandes rasgos la estructura de \yad. El funcionamiento del modelo esta compuesto por cuatro objetos principales:\\
+
+\begin{itemize}
+\item \textbf{Bodies} Corresponde a todos los cuerpos posibles de construir, ya sean esferas, muros o elementos de geometrías complejas. Los polígonos se construyen mediante la unión de triángulos y cuadriláteros.\\
+\item \textbf{Interactions} Corresponde a todas las interacciones entre los cuerpos, los algoritmos que simulan los contactos  pueden ser de dos tipos:\\
+\begin{itemize}
+\item \textbf{IGeom } asociado a características geométricas de los objetos.\
+\item \textbf{IPhys } asociada a elementos físicos de los objetos, tales como el tipo de material.\\
+\end{itemize}
+\item  \textbf{Generalized Forces } Corresponde a las fuerzas globales presentes en el modelo, es decir, los campos de aceleración a los que está sometido el sistema.\\
+\item \textbf{Engines } Corresponde al motor de la simulación. Es el objeto que le da la orden al modelo para ejecutarse, hace que los algoritmos interactúen entre sí, activa las interacciones, las condiciones globales, los algoritmos de detección y permite agregar paquetes del software (códigos que han agregado los creadores, colaboradores o usuarios). Uno de esos paquetes permite agregar condiciones del usuario para controlar el qué hacer del Software.\\
+\end{itemize}
+
+Utilizando los cuatro objetos mencionados se construyen modelos de geometrías definidas por el usuario \textit{(bodies)}, a cuerpos como las esferas se les puede asignar distintas propiedades perteneciente a suelos granulares.Estas propiedades son utilizadas por los métodos numéricos de resolución ya indicados. Dentro de las  propiedades a asignar se encuentra el ángulo de fricción del material, la densidad, el módulo de elasticidad de Young, el coeficiente de deformación de Poisson, el diámetro medio y la posición. Se puede asignar color si se desea.\\
+
+Una vez definido los cuerpos, aquellos que corresponden a esferas son sometidos a interacción sí sus posiciones y sus radios activan los algoritmos de detección o interacción. Para que los elementos salgan de su posición de equilibrio en el espacio en donde fueron creados, estos deben ser sometido a algún estímulo como el campo de aceleración global o al momento de ser creado encontrarse en contacto con otro cuerpo, activando de esta manera las fuerzas elásticas de contacto.\\
+
+Para que todo se materialice el motor de la simulación ingresa las fuerzas globales que actúan, los algoritmos de interacción y detección a utilizar, el tipo de interacción física y el tipo de interacción geométrica, las funciones definidas por el usuario y los paquetes disponibles.\\
+
+
+\section{ Acople DEM-PFV y ciclo de cálculo}
+Se mencionan algunos aspectos del acople propuesto por Catalano y se presentan de forma matricial las principales ecuaciones que definen el problema, ya que esto se relaciona de manera directa con los costos computacionales. Algunos elementos de estabilidad y en los supuestos físicos que deben cumplir las condiciones de contorno.\\
+
+El problema del flujo se resuelve con la Ecuación de Navier-Stokes (\ref{eq:NS}). Debido a las características del método numérico que soluciona el problema, los elementos de flujo poseen el tamaño de la escala de los poros  y es posible obtener la variación de volumen en cada elemento. Para realizar el acople se asume un bajo número de Reynolds (menor que 10) lo que implica un régimen de escurrimiento de Stokes en donde los términos advectivos de la ecuación de Navier-Stokes son despreciados (\ref{eq:st}).\\
+
+\begin{equation}
+\frac{\delta{u}}{\delta{t}}+(u \cdot \nabla )u -\nu \nabla^2{u}=-\nabla{w}+ g
+\label{eq:NS}
+\end{equation}
+
+\begin{equation}
+\nabla{p}=\mu \nabla^2{u}
+\label{eq:st}
+\end{equation}\\
+
+En donde $u$ corresponde al vector de velocidad, $\nu$ a la viscosidad cinemática, $\nabla{w}$ a la presión termodinámica, $g$ la aceleración de gravedad, $\mu$ a la viscosidad y $\nabla{p}$ a la presión motriz. Utilizando el teorema de la divergencia (\ref{eq:div}), proponiendo una expresión para la viscosidad (\ref{eq:div2}) la que posteriormente es validada (\citealt{catalano2014pore}) se obtiene (\ref{eq:ST}).\\ 
+
+\begin{equation}
+GP=E\dot{X}+Q_p+Qq
+\label{eq:ST}
+\end{equation}
+
+En donde G corresponde a la matriz que contiene el cociente entre la viscosidad y la longitud donde ocurre la diferencia de presión local, P corresponde a un vector con los valores de la presión, E corresponde a la matriz que define la variación de volumen en función de la velocidad $\dot{X}$, Q$_p$ corresponde al vector de flujo producto de las condiciones de presión y  Q$_q$ es un vector de flujo debido a las condiciones de caudal.\\
+
+\begin{equation}
+M \ddot{X}=F^c+W+F^f
+\label{eq:DEM}
+\end{equation}
+
+\pagebreak
+
+Para definir el movimiento de las partículas se utiliza (\ref{eq:DEM}, también de carácter matricial. De los términos de ) se tiene que  M corresponde a una matriz que contiene el valor de la masa de cada una de las esferas, $\ddot{x}$ es el vector de aceleración de las partículas, F$^c$ representa al vector de fuerzas de contacto entre partículas, F$^f$ es el vector de fuerzas debido a la acción del fluido y W corresponde al vector de fuerzas debido a los campos de aceleración, en la mayoría de los casos es la aceleración de gravedad.\\
+
+\begin{equation}
+F^f=SP
+\label{eq:ac}
+\end{equation}
+
+Finalmente para completar el acople se tiene(\ref{eq:ac}) en donde S corresponde a una matriz de superficie. Por lo tanto el problema que soluciona el modelo es el siguiente:\\
+
+\begin{equation}
+\ddot{X}=M^{-1} (Fc + W+SG^{-1}(E \dot{X}+Q_q+Q_p))
+%\label{}
+\end{equation}
+
+El último aspecto a mencionar sobre el acople corresponde al esquema de resolución, se aprecia en la Figura \ref{fig:esq} que dada una posición inicial, se ejecutan las leyes de contacto y en consecuencia se obtiene una actualización de la posición, fuerza y momentum. Cuando se realiza el acople suelo-flujo se añade otro componente al ciclo. Este componente resuelve el  flujo sujeto a la geometría y posición de las partículas. Las fuerzas de contacto se actualizan en cada iteración, mientras que el efecto de las fuerzas  del fluido se le puede asignar un periodo de iteraciones para que las ejerza sobre los solidos. Esto permite decidir la precisión que se desea dependiendo el fenómeno a simular versus los costos computacionales de la frecuencia con que se actualizan los efectos del flujo sobre las partículas.\\
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=0.54\textwidth]{Capitulo2/contact1}
+\caption{Ciclo de cálculo, esquema de actualización de información del modelo.}
+\label{fig:esq}
+\end{figure}
+
+\section{Distribución de esfuerzos en suelos granulares}
+Para poder obtener conclusiones sobre los efectos del paso de un fluido en la distribución de esfuerzos en suelos granulares, primero es necesario conocer su comportamiento sin estar sometidos a un flujo. En ese escenario es donde se encuentran patrones de comportamiento en las distribución de los esfuerzos principales (tangenciales y normales) a partir de modelos numéricos 2D y 3D de esferas sometidas a confinamientos isotrópos y esfuerzos de corte, como también a través del análisis de experimentos fotoelásticos (\citealt{thornton1997force}). En los resultados de Thornton se  observa que las fuerzas de contacto en el suelo generan caminos preferenciales para transmitirse, que su dirección concuerda con la del esfuerzo principal y su configuración cambia conforme cambia el estado tensional. La distribución de probabilidades del  esfuerzo normal y tangencial normalizado, se ajusta a una ley de potencia para los valores menores que la media y decae exponencialmente para valores mayores que la media. Esto ocurre para medios uniformemente distribuidos con distinta  cantidad de esferas y distinta dispersión del tamaño de grano (\citealt{radjai1996force}).\\
+
+La Figura \ref{fig:esfe}  muestran la distribución de frecuencia de esfuerzos mayores y menores al promedio de 4 modelos denominados A, B, C, D con 500, 1200, 4025 y 1024 esferas respectivamente, uniformemente distribuidas en un rango de radios, estos resultados son recogidos por Thornton para generar sus hipótesis del esqueleto de suelo. En la figura $P_n$ y $P_T$ corresponde a la probabilidad de ocurrencia de la tensión, $T$ a la tensión tangencial, $<T>$ a la tensión tangencial promedio, $N$ a la tensión normal y $<N>$ a la tensión normal promedio.\\
+
+\begin{figure}[htb]
+\centering
+\subfigure[Esfuerzo Normal]{\includegraphics[width=0.485\textwidth]{Capitulo1/esf4n.png}}
+\hspace{0.1 cm}
+\subfigure[Esfuerzo Tangencial]{\includegraphics[width=0.483\textwidth]{Capitulo1/esf4.png}}
+\caption{Radjai et al, 1996. (a) Distribución probabilística de esfuerzos normales normalizada (b) Distribución probabilística de esfuerzos tangenciales normalizada.}
+\label{fig:esfe}
+\end{figure}
+
+En medios granulares altamente polidispersos se ha observado que las partículas más grandes están asociadas a las cadenas de esfuerzos de mayor magnitud, las que se denominan cadenas fuertes. Estas cadenas fuertes se equilibran con fuerzas de menor magnitud que son transportadas por las partículas de menor tamaño. A este conjunto de gran cantidad de esferas de menor tamaño se les denomina cadenas débiles. Además se observa que en presencia de adhesión entre granos, la cohesión aumenta con la magnitud de la polidispersividad (\citealt{voivret2009multiscale}). En las simulaciones de Voivret los paquetes de suelo están sometido a esfuerzos de corte simple.\\
+
+En la Figura \ref{fig:esfe2} se observa en a) la red de esfuerzos para un modelo de suelo 3D sometida a un confinamiento de simetría axial visto desde la dirección $\sigma_3$ realizada por (\citealt{thornton1997force}) con el código de simulación 3D TRUBAL. En ella se observa la influencia de la carga sobre la orientación de los esfuerzos, las cadenas principales se orientan preferentemente de manera horizontal .En b) se muestra un zoom de un modelo sometido a esfuerzo de corte, la magnitud de los esfuerzos normales determina el ancho de la linea, las esferas blancas son los elementos que no transmiten esfuerzos y no pertenecen a las cadenas de esfuerzos trazadas. Es evidente la relación entre el diámetro de la partícula y la magnitud del esfuerzo trasmitido (\citealt{voivret2009multiscale}).\\
+
+\begin{figure}[htb]
+\centering
+\subfigure[Thornton, 1997]{\includegraphics[width=0.37\textwidth]{Capitulo1/esf3.png}}
+\hspace{0.4 cm}
+\subfigure[Voivret et al.
+2009]{\includegraphics[width=0.50\textwidth]{Capitulo1/esf5.png}}
+\caption{(a) Distribución esfuerzo muestra 3D  (b) zoom a la malla de esfuerzos.}
+\label{fig:esfe2}
+\end{figure}
+
+
+\section{Comentarios y consideraciones}
+En los modelos que se presentarán el medio permeable se encontrará saturado. Se debe procurar tener un número de Reynolds menor a 10 para que el flujo sea de Stokes y despreciar los términos inerciales de la ecuación de Navier-Stokes para poder utilizar el PFV. El modelo permitirá que los elementos de flujo y los elementos de suelo intercambien momentum y fuerzas. Además entregará el esfuerzo, posición, velocidad, radio, entre otras características de las esferas, mientras que para el flujo se conocerá la presión y la velocidad de los elementos.\\
+
+Es importante mencionar que dadas las características de su construcción el acople DEM-PFV requiere de menores costos computacionales que un DEM-FEM. Esto se debe a que los elementos de fluido son prácticamente de la misma escala que los elementos de suelo, por lo tanto hay menos elementos. La escala de los elementos por otro lado puede ser una desventaja ya que no es posible obtener un perfil de velocidades entre los poros, por lo tanto no se recomienda utilizar PFV para estudiar fenómenos en los que el gradiente de velocidad sea un parámetro importante de considerar, como en el transporte de calor y la macrodispersión.\\
+
+En el Cuadro \ref{tbl:comp1} se aprecia que los grados de libertad son menores para el PFV, la cantidad de elementos de fluidos  generados son menores y en consecuencia los tiempos de cómputo también lo son comparando ambos para la misma capacidad computacional.\\
+
+\begin{table}[H]
+\centering
+\begin{tabular}{>{\arraybackslash}m{6cm} >{\arraybackslash}m{2cm} >{\arraybackslash}m{3cm} >{\arraybackslash}m{2cm} >{\arraybackslash}m{2cm}}
+\hline 
+Número de esferas & FEM gdl & PFV gdl & FEM tiempo [s] & PFV tiempo [s]\\
+\hline \hline 
+9 & 1.7e5 & 45 & 300 & 0.00022\\
+200 & 1.2e6 & 1093 & 5400 & 0.0046\\
+2e3 & no disponible (n.d.) & 12e3 & n.d. & 0.091\\
+2e4 & n.d. & 11e4 & n.d. & 2.21\\
+\hline
+\end{tabular}
+\caption{Comparasción de los grados de libertad (gdl) y el tiempo de CPU entre FEM y PFV, para una iteración (Catalano, 2013).}
+\label{tbl:comp1}
+\end{table}
+
+Se opta por un modelo que utilice el método de elementos discretos para los elemento de suelo, como lo es $\yad$ y se acoplará con el PFV para simular el fluido. Se escoge PFV por que al ser el volumen de fluido de la escala del poro los costos computacionales son mucho menores que al utilizar LBM. Para los fenómenos estudiados no es importante la precisión del campo de velocidad en los canales de poros. PFV es más directo de implementar e imponer las condiciones de contorno. En cuanto a los resultados con el DEM se espera obtener una muestra de suelo que se asemeje a la realidad mediante el uso de $\yad$, asumiendo la limitación de modelar el suelo utilizando esferas, pero cuyo comportamiento responde a las leyes de la física para conseguir la configuración final de los paquetes de suelo, es decir, producto de la interacción entre partículas y el campo de aceleración de gravedad y no utilizando un dibujo aleatorio sujeto a condiciones arbitrarias.
+
