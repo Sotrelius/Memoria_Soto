@@ -1,0 +1,56 @@
+\BOOKMARK [0][-]{chapter.1}{ Introducci\363n}{}% 1
+\BOOKMARK [1][-]{section.1.1}{ Motivaci\363n}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{ Objetivos}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.2.1}{ General}{section.1.2}% 4
+\BOOKMARK [2][-]{subsection.1.2.2}{ Espec\355ficos}{section.1.2}% 5
+\BOOKMARK [1][-]{section.1.3}{ Metodolog\355a}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.3.1}{ Revisi\363n bibliogr\341fica}{section.1.3}% 7
+\BOOKMARK [2][-]{subsection.1.3.2}{ Comprender el funcionamiento de los software y revisi\363n de los m\351todos de resoluci\363n que utilizan}{section.1.3}% 8
+\BOOKMARK [2][-]{subsection.1.3.3}{ Construcci\363n del modelo}{section.1.3}% 9
+\BOOKMARK [2][-]{subsection.1.3.4}{ An\341lisis de Resultados}{section.1.3}% 10
+\BOOKMARK [1][-]{section.1.4}{ Organizaci\363n del informe}{chapter.1}% 11
+\BOOKMARK [0][-]{chapter.2}{ Revisi\363n bibliogr\341fica}{}% 12
+\BOOKMARK [1][-]{section.2.1}{ Introducci\363n}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.2}{M\351todo de elementos discretos \(DEM\)}{chapter.2}% 14
+\BOOKMARK [1][-]{section.2.3}{M\351todo de lattice boltzman \(LBM\)}{chapter.2}% 15
+\BOOKMARK [1][-]{section.2.4}{M\351todo de volumenes finitos a escala de poros \(PFV\)}{chapter.2}% 16
+\BOOKMARK [1][-]{section.2.5}{YADE}{chapter.2}% 17
+\BOOKMARK [1][-]{section.2.6}{ Acople DEM-PFV y ciclo de c\341lculo}{chapter.2}% 18
+\BOOKMARK [1][-]{section.2.7}{Distribuci\363n de esfuerzos en suelos granulares}{chapter.2}% 19
+\BOOKMARK [1][-]{section.2.8}{Comentarios y consideraciones}{chapter.2}% 20
+\BOOKMARK [0][-]{chapter.3}{ Validaci\363n del modelo}{}% 21
+\BOOKMARK [1][-]{section.3.1}{ Introducci\363n}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.2}{ Modelos de prueba}{chapter.3}% 23
+\BOOKMARK [1][-]{section.3.3}{ Modelos acoplados}{chapter.3}% 24
+\BOOKMARK [1][-]{section.3.4}{ Validaci\363n del modelo}{chapter.3}% 25
+\BOOKMARK [2][-]{subsection.3.4.1}{Resultados}{section.3.4}% 26
+\BOOKMARK [2][-]{subsection.3.4.2}{ Ajuste a la teor\355a}{section.3.4}% 27
+\BOOKMARK [0][-]{chapter.4}{ Conductividad hidr\341ulica, tama\361o del grano, porosidad y confinamiento}{}% 28
+\BOOKMARK [1][-]{section.4.1}{ Introducci\363n}{chapter.4}% 29
+\BOOKMARK [1][-]{section.4.2}{ Modelos de mayor tama\361o}{chapter.4}% 30
+\BOOKMARK [1][-]{section.4.3}{ Resultados de los modelos}{chapter.4}% 31
+\BOOKMARK [2][-]{subsection.4.3.1}{ Conductividad hidr\341ulica y tama\361os caracter\355sticos}{section.4.3}% 32
+\BOOKMARK [2][-]{subsection.4.3.2}{ Modelos num\351ricos y resultados emp\355ricos}{section.4.3}% 33
+\BOOKMARK [2][-]{subsection.4.3.3}{ Porosidad y confinamiento}{section.4.3}% 34
+\BOOKMARK [1][-]{section.4.4}{Expresi\363n propuesta}{chapter.4}% 35
+\BOOKMARK [0][-]{chapter.5}{ Esfuerzos del esqueleto de suelo y efectos del flujo}{}% 36
+\BOOKMARK [1][-]{section.5.1}{ Introducci\363n}{chapter.5}% 37
+\BOOKMARK [1][-]{section.5.2}{ Modelos bimodales estratificados}{chapter.5}% 38
+\BOOKMARK [1][-]{section.5.3}{ Modelos uniformemente distribuidos}{chapter.5}% 39
+\BOOKMARK [1][-]{section.5.4}{Modelos PSD \(Particle size distribution\) }{chapter.5}% 40
+\BOOKMARK [2][-]{subsection.5.4.1}{Granulometrias bimodales}{section.5.4}% 41
+\BOOKMARK [2][-]{subsection.5.4.2}{Granulometrias reales}{section.5.4}% 42
+\BOOKMARK [0][-]{chapter.6}{ Relaci\363n entre distribuci\363n de tensiones y el gradiente hidr\341ulico cr\355tico}{}% 43
+\BOOKMARK [1][-]{section.6.1}{ Introducci\363n}{chapter.6}% 44
+\BOOKMARK [1][-]{section.6.2}{ Distribuci\363n de tensiones}{chapter.6}% 45
+\BOOKMARK [1][-]{section.6.3}{ Aspectos computacionales}{chapter.6}% 46
+\BOOKMARK [0][-]{chapter.7}{ Conclusiones}{}% 47
+\BOOKMARK [1][-]{section.7.1}{Construcci\363n del modelo}{chapter.7}% 48
+\BOOKMARK [1][-]{section.7.2}{Validaci\363n del modelo y conductividad hidr\341ulica}{chapter.7}% 49
+\BOOKMARK [1][-]{section.7.3}{Distribuci\363n de esfuerzo}{chapter.7}% 50
+\BOOKMARK [0][-]{chapter*.45}{Bibliograf\355a}{}% 51
+\BOOKMARK [0][-]{section*.46}{Anexo I}{}% 52
+\BOOKMARK [0][-]{section*.48}{Anexo II}{}% 53
+\BOOKMARK [0][-]{section*.55}{Anexo III}{}% 54
+\BOOKMARK [0][-]{section*.62}{Anexo IV}{}% 55
+\BOOKMARK [0][-]{section*.65}{Anexo V}{}% 56

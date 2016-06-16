@@ -1,6 +1,6 @@
-\chapter{ Relación entre Distribución de tensiones y el gradiente hidráulico crítico} 
+\chapter{ Relación entre distribución de tensiones y el gradiente hidráulico crítico} 
 \section{ Introducción}
-Enfocado en el problema de erosión interna y su relación con la distribución de esfuerzos, en donde existe migración de la porción fina a través del suelo por efecto del paso de un flujo. Se busca caracterizar la distribución espacial y porcentual de las tensiones en el suelo, diferenciando entre la fracción fina y la gruesa. El punto que define si una partícula es gruesa o fina será el diámetro característico $d_{15}$. La erosión interna se produce en medios permeables que poseen granos con diferencias de tamaño suficiente para que los granos pequeños se desplacen a través de los poros de los granos grandes, esto es para valores superiores a 4.5 del cociente entre el radio mayor con el radio menor. Para que estos granos puedan migrar debe existir una fuerza que los desplace de su condición de equilibrio. En el problema en estudio esa fuerza proviene del flujo ascendente. Para que exista flujo ascendente debe existir una diferencia de presión a lo largo del medio permeable, que en este caso es un suelo granular. De la ecuación de Darcy, utilizada en capítulos anteriores, el gradiente hidráulico se define como el cociente entre la diferencia de presión y la distancia en la que esta ocurre \ref{eq:ic}.
+Enfocado en el problema de erosión interna y su relación con la distribución de esfuerzos, en donde existe migración de la porción fina a través del suelo por efecto del paso de un flujo. Se busca caracterizar la distribución espacial y porcentual de las tensiones en el suelo, diferenciando entre la fracción fina y la gruesa. El punto que define si una partícula es gruesa o fina será el diámetro característico $d_{15}$. La erosión interna se produce en medios permeables que poseen granos con diferencias de tamaño suficiente para que los granos pequeños se desplacen a través de los poros de los granos grandes. Esto es para valores superiores a 4.5 del cociente entre el radio mayor con el radio menor. Para que estos granos puedan migrar debe existir una fuerza que los desplace de su condición de equilibrio. En el problema en estudio esa fuerza proviene del flujo ascendente. Para que exista flujo ascendente debe existir una diferencia de presión a lo largo del medio permeable, que en este caso es un suelo granular. De la ecuación de Darcy, utilizada en capítulos anteriores, el gradiente hidráulico se define como el cociente entre la diferencia de presión y la distancia en la que esta ocurre:
 
 \begin{equation}
 i= \frac{\Delta{P} }{ \rho g \Delta{L}} =\frac{\Delta{H}}{\Delta{L} }
@@ -9,21 +9,22 @@ i= \frac{\Delta{P} }{ \rho g \Delta{L}} =\frac{\Delta{H}}{\Delta{L} }
 
 Para caracterizar la distribución de las tensiones se definen parámetros análogos a los utilizados en el capítulo anterior con la distribución de fuerzas. Ya se demostró que existe una distribución espacial de la transmisión de fuerzas asociada al tamaño de grano, por lo tanto existe también una distribución de esfuerzos y en consecuencia una porción de las tensiones es transportada por la fracción fina y otra por la gruesa. Obtener esto orientado a generar un parámetro  que permita calcular el gradiente hidráulico crítico utilizando el concepto introducido por (\citealt{skempton1994experiments}). El gradiente hidráulico crítico corresponde al punto en el cual la velocidad del fluido deja de comportarse de forma lineal con el gradiente hidráulico y se aprecia migración de finos, por lo tanto erosión interna.
 
-\subsection{Granulometrias Reales}
-Teniendo claridad de las ventajas y limitaciones del modelo, conociendo también la capacidad computacional con la que se cuenta se procede a realizar el ultimo set de modelaciones. Se decide replicar las granulometrías de (\citealt{skempton1994experiments}) y comparar sus resultados con los obtenidos utilizando el modelo numérico. También obtener un parámetro similar a "$\alpha$" introducido también por ellos, pero basado en la distribución de tensiones.\\
+Teniendo claridad de las ventajas y limitaciones del modelo, conociendo también la capacidad computacional con la que se cuenta, se procede a realizar el ultimo set de modelaciones. Se decide replicar las granulometrías de (\citealt{skempton1994experiments}) y comparar sus resultados con los obtenidos utilizando el modelo numérico. También obtener un parámetro similar a $\alpha$ introducido también por ellos, pero basado en la distribución de tensiones.\\
 
-En la Figura \ref{fig:gran_SK} se observa en color azul la granulometría A seguida por la granulometría obtenida a través del modelo en color negro, esta fue reducida para mejorar los tiempos de cómputo, posee del orden de 320.000 elementos de suelo. De color verde la granulometría B seguida en color negro por la distribución obtenida con el modelo, posee del orden de 180.000 elementos de suelo. En color magenta se observa la granulometría C y de color rojo la granulometría D que posee del orden de 90.000 elementos de suelo, ambas presentan en color negro la granulometría modelada.
+En la Figura \ref{fig:gran_SK} se observa en color azul la granulometría A seguida por la granulometría obtenida a través del modelo en color negro. Esta fue reducida para mejorar los tiempos de cómputo, posee del orden de 320.000 elementos de suelo. De color verde la granulometría B seguida en color negro por la distribución obtenida con el modelo, posee del orden de 180.000 elementos de suelo. En color magenta se observa la granulometría C y de color rojo la granulometría D que posee del orden de 90.000 elementos de suelo. Ambas presentan en color negro la granulometría modelada.\\
 
 \begin{figure}[htb]
 \centering
 \includegraphics[width=0.99\textwidth]{Capitulo5/gran_SK}
 \caption{Granulometrías realizadas.}
 \label{fig:gran_SK}
-\end{figure}
+\end{figure}\\
 
-Los modelos corresponden a 4 granulometrias reales utilizadas en los experimentos de laboratorio de Skempton y Brogan, la granulometría  se encuentran distribuida por masa. Los modelos son de base cuadrada de 5 [cm] y el paquete inicial posee 2 [m] de altura, producto del algoritmo de construcción del paquete de suelo la porosidad inicial es bastante alta, por lo que luego de depositarse por gravedad la muestra de suelo no superará los 2 [cm]. Las muestras A y B corresponden a granulometrías inestables, mientras que C y D corresponden a suelos estables (ver anexo XX).\\
+\pagebreak
 
-En la Figura \ref{fig:gran_skemp} se aprecia cada una de los modelos con las esferas en reposo. Se observa el la magnitud del esfuerzo normal y por lo tanto la relación entre el tamaño de grano y la tensión. Se observa granos pequeños sometidos a altas cargas en (A) y (B). En (C) y (D) se obtiene una mayor altura con menos elementos, esto sucede porque su radio mínimo es mayor al de (A) y (B), se necesitan muchos granos pequeños para ocupar el mismo volumen.\\
+Los modelos corresponden a 4 granulometrías reales utilizadas en los experimentos de laboratorio de Skempton y Brogan. La granulometría  se encuentran distribuida por masa. Los modelos son de base cuadrada de 5 [cm] y el paquete inicial posee 2 [m] de altura. Producto del algoritmo de construcción del paquete de suelo, la porosidad inicial es bastante alta, por lo que, luego de depositarse por gravedad la muestra de suelo no superará los 2 [cm]. Las muestras A y B corresponden a granulometrías inestables, mientras que C y D corresponden a suelos estables (ver anexo IV).\\
+
+En la Figura \ref{fig:gran_skemp} se aprecia cada uno de los modelos con las esferas en reposo. Se observa en| la magnitud del esfuerzo normal y por lo tanto la relación entre el tamaño de grano y la tensión. Se observa granos pequeños sometidos a altas cargas en (A) y (B). En (C) y (D) se obtiene una mayor altura con menos elementos. Esto sucede porque su radio mínimo es mayor al de (A) y (B), se necesitan muchos granos pequeños para ocupar el mismo volumen.\\
 
 \begin{figure}[htb]
 \centering
@@ -53,9 +54,9 @@ En donde $\tau_{f}$ representa la suma de la tensión de los granos finos, menore
 \tau_{m}=\tau_{g}+ \tau_{f}
 \end{equation}\\
 
-En donde $R_i$ corresponde al radio del elemento de suelo, $\lef| O.forces.f(i) \lef|$ al modulo de la fuerza a la que se encuentra sometido el grano, $n_{fino}$ a la cantidad de partículas finas con diámetro menor al D15 y $n_{grueso}$ a la cantidad de esferas gruesas mayores al diámetro D15.\\
+En donde $R_i$ corresponde al radio del elemento de suelo, $\lef| O.forces.f(i) \lef|$ al modulo de la fuerza a la que se encuentra sometido el grano, es un vector que contiene el modulo de la fuerza en las tres componentes cartesianas, $n_{fino}$ a la cantidad de partículas finas con diámetro menor al D15 y $n_{grueso}$ a la cantidad de esferas gruesas mayores al diámetro D15.\\
 
-Se definen dos parámetros más, uno es $(\alpha)$, que es el cociente entre la suma de esfuerzos transportados por los granos gruesos y la suma de los esfuerzos transportado por los granos finos. El segundo es $(\beta)$ y corresponde al cociente entre la tensión promedio de los granos gruesos y la tensión promedio de los granos finos.
+Se definen dos parámetros más, uno es $\alpha$, que es el cociente entre la suma de esfuerzos transportados por los granos gruesos y la suma de los esfuerzos transportado por los granos finos. El segundo es $\beta$ y corresponde al cociente entre la tensión promedio de los granos gruesos y la tensión promedio de los granos finos.
 
 \begin{equation}
 \alpha=\tau_{g}/\tau_{f}
@@ -63,7 +64,7 @@ Se definen dos parámetros más, uno es $(\alpha)$, que es el cociente entre la su
 \beta=\frac{\tau_{g}}{n_{grueso}}/\frac{\tau_{f}}{n_{fino}}
 \end{equation}
 
-En el Cuadro \ref{tbl:resR} se presenta el resumen con los resultados de los parámetros propuestos para las 4 granulometrías modeladas, se incluye una fila con el valor de $(\alpha \cdot \beta)$ y una con el valor del gradiente hidráulico critico calculado por Skempton $(i_{c}Skempton)$.\\
+En la Tabla \ref{tbl:resR} se presenta el resumen con los resultados de los parámetros propuestos para las 4 granulometrías modeladas. Se incluye una fila con el valor de $(\alpha \cdot \beta)$ y una con el valor del gradiente hidráulico critico calculado por Skempton $(i_{c}Skempton)$.\\
 
 \begin{table}[H]
 \centering
@@ -79,7 +80,7 @@ $T_g$ & 0.0204 & 0.0269 & 0.108 & 0.105\\
 \hline
 $\alpha$  & 0.0209& 0.0276 & 0.122 & 0.118\\
 $\beta$ & 13.66 & 12.38 & 4.49 & 8.53\\
-$\alpha \cdot \beta$ & 0.285 & 0.342 & 0.547 & 1.008\\
+$1/\beta$ [\%] & 7.3 & 8.1 & 22.2 & 11.7\\
 \hline
 $i_c$ Skempton & 0.20 & 0.34 & 1.0 & 1.0\\
 \hline
@@ -87,9 +88,9 @@ $i_c$ Skempton & 0.20 & 0.34 & 1.0 & 1.0\\
 \label{tbl:resR}
 \end{table}
 
-Del Cuadro \ref{tbl:resR}  se desprende también que las granulometrías estables (C y D) poseen un valor de $(\alpha)$ un orden de magnitud mayor que las inestables ( A y B), por lo tanto se puede aseverar que en las granulometrías inestables los finos transmiten mayor cantidad del total de las tensiones. Se observa que A y B presentan un valor de $\beta$ mayor a 10, lo que significa que las tensiones promedio de los granos gruesos son mayores en un orden de magnitud a las tensiones promedio de los finos. Se observa también que los valores de $(\alpha \cdot \beta)$ se acercan bastante a los valores de $(i_{c}Skempton)$. Se puede decir que existe una tendencia entre los resultados y el nivel de estabilidad del suelo. Interesante es mencionar que para el experimento con la granulometría C, Skempton obtiene que el flujo turbulento comienza para un $i_c=0.55$ ($R_e>5$ para el $d_{15}$).\\   
+De la Tabla \ref{tbl:resR}  se desprende también que las granulometrías estables (C y D) poseen un valor de $(\alpha)$ un orden de magnitud mayor que las inestables ( A y B), por lo tanto se puede aseverar que en las granulometrías inestables, los finos transmiten mayor cantidad del total de las tensiones. Se observa que A y B presentan un valor de $\beta$ mayor a 10, lo que significa que las tensiones promedio de los granos gruesos son mayores en un orden de magnitud a las tensiones promedio de los finos. Se observa también que los valores de $(1/\beta)$ mayores que 10 corresponden  a las granulometrías inestables, mientras que los menores de 10 a las estables. Se puede decir que existe una tendencia entre los resultados y el nivel de estabilidad del suelo. Interesante es mencionar que para el experimento con la granulometría C, Skempton obtiene que el flujo turbulento comienza para un $i_c=0.55$ ($R_e>5$ para el $d_{15}$).\\   
 
-Frente a los resultados obtenidos, se decide darle seguimiento directo a la relación entre tensiones y diámetro. Se normaliza las tensiones de cada granulometría por el valor promedio de la tensión y los diámetros son normalizados por el tamaño de su diámetro D15. En la Figura \ref{fig:TvsR} se muestra el logaritmo de la tensión normalizada en función del logaritmo del diámetro normalizado, para las 4 granolometrías modeladas.\\
+Frente a los resultados obtenidos, se decidió darle seguimiento directo a la relación entre tensiones y diámetro. Se normaliza las tensiones de cada granulometría por el valor promedio de la tensión y los diámetros son normalizados por el tamaño de su diámetro D15. En la Figura \ref{fig:TvsR} se muestra el logaritmo de la tensión normalizada en función del logaritmo del diámetro normalizado, para las 4 granolometrías modeladas.\\
 
 \begin{figure}[htb]
 \centering
@@ -98,7 +99,7 @@ Frente a los resultados obtenidos, se decide darle seguimiento directo a la rela
 \label{fig:TvsR}
 \end{figure}
 
-En la Figura \ref{fig:TvsR} se observa una tendencia  lineal en el comportamiento de los resultados, para cada una de las granulometrías se propone realizar un ajuste del siguiente tipo:
+En la Figura \ref{fig:TvsR} se observa una tendencia  lineal en el comportamiento de los resultados. Para cada una de las granulometrías se propone realizar un ajuste del siguiente tipo:
 
 \begin{equation}
 log \bigg( \frac{T}{<T>}\bigg) =m \cdot log\bigg(\frac{d}{d_{15}}\bigg)+log(C)
@@ -108,23 +109,23 @@ log \bigg( \frac{T}{<T>}\bigg) =m \cdot log\bigg(\frac{d}{d_{15}}\bigg)+log(C)
  \frac{T}{<T>} = C \cdot \bigg(\frac{d}{d_{15}}\bigg)^{m}
 \end{equation}
 
-En donde $T$ corresponde a la tensión, $<T>$ a la tensión promedio, $m$ a la pendiente de la recta, $d$ el diámetro del grano, $d_{15}$ el diámetro característico D15 y $C$ el coeficiente de posición. 
+En donde $T$ corresponde a la tensión, $<T>$ a la tensión promedio, $m$ a la pendiente de la recta, $d$ el diámetro del grano, $d_{15}$ el diámetro característico D15 y $C$ el coeficiente de posición:
 
 \begin{equation}
 m =\frac{\Delta log\big(\frac{T}{<T>}\big)}{\Delta log\big( \frac{d}{d_{15}}\big)}
 \end{equation}\\
 
-En la Figura \ref{fig:TvsR} se aprecia dispersión en la zona de diámetros pequeños en las granulometrias inestables (A y B), la existencia de tensiones mucho menores a la promedio y además alejadas de la tendencia, muestran la existencia de granos finos con poca carga y por tanto con posibilidad de migrar. Producto de esta hipótesis es que se calcula el error cuadrático medio y el error absoluto promedio.
+En la Figura \ref{fig:TvsR} se aprecia dispersión en la zona de diámetros pequeños en las granulometrias inestables (A y B), la existencia de tensiones mucho menores a la promedio y además alejadas de la tendencia, muestran la existencia de granos finos con poca carga y por tanto con posibilidad de migrar. Producto de esta hipótesis es que se calcula el error cuadrático medio y el error absoluto promedio:
 
 \begin{equation}
 ECM=\frac{1}{n}\sum_{i}^{n}{(T_{(d)}-T)^{2}}
 \hspace{2 cm}
 EAP=\frac{1}{n}\sum_{i}^{n}{(T-T_{(d)})}
-\end{equation}\\
+\end{equation}\
 
-En donde $n$ corresponde a la cantidad de esferas, $T_{(d)}$ al valor de las tensiones normalizadas ajustadas linealmente en función de el diámetro de partícula normalizado $d$ y $T$ a los valores de la tensión normalizada. Se calcula también la pendiente de la recta envolvente de la dispersión en la zona inferior a la curva ajustada $(m_f)$, nuevamente bajo el supuesto que a bajas tensiones en granos finos, existe la posibilidad de migrar.\\  
+en donde $n$ corresponde a la cantidad de esferas, $T_{(d)}$ al valor de las tensiones normalizadas ajustadas linealmente en función del diámetro de partícula normalizado $d$ y $T$ a los valores de la tensión normalizada. Se calcula también la pendiente de la recta envolvente de la dispersión en la zona inferior a la curva ajustada $(m_f)$, nuevamente bajo el supuesto que a bajas tensiones en granos finos, existe la posibilidad de migrar.\\  
 
-Del Cuadro \ref{tbl:resRL} se obtienen conclusiones interesantes, la primera es que la pendiente de todas las curvas es la misma y es igual a 1. Esto confirma que la relación entre el diámetro y la tensión es lineal en las zonas donde se ajusta a la curva. Descarta la hipótesis de la dispersión de los datos como un indicador de estabilidad preciso, pero si es bastante diferente el valor entre las granulometrías estables e inestables. Por último, al realizar la operación inversa del logaritmo a la diferencia de las pendientes parece ser un  indicador bastante preciso y se asocia a que tan no-lineal es el comportamiento de la envolvente de la dispersión.
+De la Tabla \ref{tbl:resRL} se obtienen conclusiones interesantes, la primera es que la pendiente de todas las curvas es la misma y es igual a 1. Esto confirma que la relación entre el diámetro y la tensión es lineal en las zonas donde se ajusta a la curva y descarta la hipótesis de la dispersión de los datos como un indicador de estabilidad preciso. Por otro lado es bastante el valor entre las granulometrías estables e inestables difiere en 4 órdenes de magnitud. Por último, a la diferencia entre la pendiente de la curva que ajusta a la serie de datos $(m)$ y la pendiente de la envolvente de la nube de datos que se escapan de la recta $(m_f)$, denominada $m_i$, se le aplica la operación inversa al logaritmo. Este parece ser un  indicador bastante preciso para el gradiente hidráulico crítico y se asocia a qué tan no-lineal es el comportamiento de la envolvente de la dispersión, si $m_i=0$ implica comportamiento lineal.
 
 
 \begin{table}[H]
@@ -149,9 +150,19 @@ $i_c$ Skempton & 0.20 & 0.34 & 1.0 & 1.0\\
 \label{tbl:resRL}
 \end{table}
 
-\section{ Aspectos Computacionales.}
+En la Figura \ref{fig:Skzoom} se muestra un zoom a las zonas de dispersión de datos de las granulometrías A y B, correspondiente a los diámetros menores. Por un lado se encuentran sometidos a muy poca tensión, por tanto son susceptibles a migrar y por otro lado se encuentran sometidos a tensiones incluso mayores a un orden de magnitud por sobre la tensión promedio. 
 
-Los modelos de este capítulo se realizaron en un computador quad core, de 8 núcleos de 3.6 [GHz], 16 [GB] de memoria RAM. Todo el trabajo de título se realizó utilizando el sistema operativo Ubuntu. En el Cuadro \ref{tbl:resRC} se muestra un resumen con algunas datos sobre los modelos realizados en este capítulo.\\
+\begin{figure}[htb]
+\centering
+\subfigure[acercamiento a zona de dispersión granulometría A.] {\includegraphics[width=0.95\textwidth]{Capitulo5/Ta_vs_R}}
+\subfigure[acercamiento a zona de dispersión granulometría B.] {\includegraphics[width=0.95\textwidth]{Capitulo5/Tb_vs_R}}
+\caption{Pendientes de las envolventes de la zona inferior de dispersión de datos.}
+\label{fig:Skzoom}
+\end{figure}
+
+\section{ Aspectos computacionales}
+
+Los modelos de este capítulo se realizaron en un computador quad core, de 8 núcleos de 3.6 [GHz], 16 [GB] de memoria RAM. Todo el trabajo de título se realizó utilizando el sistema operativo Ubuntu. En la Tabla \ref{tbl:resRC} se muestra un resumen con algunas datos sobre los modelos realizados en este capítulo.\\
 
 \begin{table}[H]
 \centering

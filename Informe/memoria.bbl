@@ -1,154 +1,120 @@
-\begin{thebibliography}{23}
-\providecommand{\natexlab}[1]{#1}
-\providecommand{\url}[1]{\texttt{#1}}
-\expandafter\ifx\csname urlstyle\endcsname\relax
-  \providecommand{\doi}[1]{doi: #1}\else
-  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+\begin{thebibliography}{}
 
-\bibitem[Catalano et~al.(2011)Catalano, Chareyre, Cortis, and
-  Barth{\'e}l{\'e}my]{catalano2011pore}
-E~Catalano, B~Chareyre, A~Cortis, and E~Barth{\'e}l{\'e}my.
-\newblock A pore-scale hydro-mechanical coupled model for geomaterials.
-\newblock In \emph{Particles 2011 II International Conference on Particle-Based
-  Methods}, 2011.
-
-\bibitem[Catalano et~al.(2013)Catalano, Chareyre, and
-  Barth{\'e}l{\'e}my]{catalano2013pfv}
-E~Catalano, B~Chareyre, and E~Barth{\'e}l{\'e}my.
+\bibitem[Catalano et~al., 2013]{catalano2013pfv}
+Catalano, E., Chareyre, B., and Barth{\'e}l{\'e}my, E. (2013).
 \newblock Dem-pfv analysis of solid-fluid transition in granular sediments
   under the action of waves.
-\newblock In \emph{POWDERS AND GRAINS 2013: Proceedings of the 7th
-  International Conference on Micromechanics of Granular Media}, volume 1542,
-  pages 1063--1066. AIP Publishing, 2013.
+\newblock In {\em POWDERS AND GRAINS 2013: Proceedings of the 7th International
+  Conference on Micromechanics of Granular Media}, volume 1542, pages
+  1063--1066. AIP Publishing.
 
-\bibitem[Catalano et~al.(2014)Catalano, Chareyre, and
-  Barth{\'e}lemy]{catalano2014pore}
-Emanuele Catalano, Bruno Chareyre, and Eric Barth{\'e}lemy.
+\bibitem[Catalano et~al., 2014]{catalano2014pore}
+Catalano, E., Chareyre, B., and Barth{\'e}lemy, E. (2014).
 \newblock Pore-scale modeling of fluid-particles interaction and emerging
   poromechanical effects.
-\newblock \emph{International Journal for Numerical and Analytical Methods in
-  Geomechanics}, 38\penalty0 (1):\penalty0 51--71, 2014.
+\newblock {\em International Journal for Numerical and Analytical Methods in
+  Geomechanics}, 38(1):51--71.
 
-\bibitem[Chareyre et~al.(2012)Chareyre, Cortis, Catalano, and
-  Barth{\'e}lemy]{chareyre2012pore}
-Bruno Chareyre, Andrea Cortis, Emanuele Catalano, and Eric Barth{\'e}lemy.
+\bibitem[Chareyre et~al., 2012]{chareyre2012pore}
+Chareyre, B., Cortis, A., Catalano, E., and Barth{\'e}lemy, E. (2012).
 \newblock Pore-scale modeling of viscous flow and induced forces in dense
   sphere packings.
-\newblock \emph{Transport in porous media}, 94\penalty0 (2):\penalty0 595--615,
-  2012.
+\newblock {\em Transport in porous media}, 94(2):595--615.
 
-\bibitem[Chen et~al.(2011)Chen, Drumm, and Guiochon]{chen2011coupled}
-Feng Chen, Eric~C Drumm, and Georges Guiochon.
-\newblock Coupled discrete element and finite volume solution of two classical
-  soil mechanics problems.
-\newblock \emph{Computers and Geotechnics}, 38\penalty0 (5):\penalty0 638--647,
-  2011.
+\bibitem[Cundall and Strack, 1979]{cundall1979}
+Cundall, P.~a. and Strack, O. (1979).
+\newblock A discrete numerical model for granular assemblies.
+\newblock {\em Geotechnique}, (29):47--65.
 
-\bibitem[Devlin(2015)]{devlin2015hydrogeosievexl}
-JF~Devlin.
+\bibitem[Darcy, 1856]{darcy1856}
+Darcy, H. (1856).
+\newblock {\em Les Fontaines Publiques de La Ville de Dijon, Paris}.
+\newblock V. Dalmont.
+
+\bibitem[Devlin, 2015]{devlin2015hydrogeosievexl}
+Devlin, J. (2015).
 \newblock Hydrogeosievexl: an excel-based tool to estimate hydraulic
   conductivity from grain-size analysis.
-\newblock \emph{Hydrogeology Journal}, 23\penalty0 (4):\penalty0 837--844,
-  2015.
+\newblock {\em Hydrogeology Journal}, 23(4):837--844.
 
-\bibitem[Galindo-Torres et~al.(2013)Galindo-Torres, Scheuermann, M{\"u}hlhaus,
-  and Williams]{galindo2013micro}
-SA~Galindo-Torres, A~Scheuermann, HB~M{\"u}hlhaus, and DJ~Williams.
+\bibitem[Galindo-Torres et~al., 2013]{galindo2013micro}
+Galindo-Torres, S., Scheuermann, A., M{\"u}hlhaus, H., and Williams, D. (2013).
 \newblock A micro-mechanical approach for the study of contact erosion.
-\newblock \emph{Acta Geotechnica}, 10\penalty0 (3):\penalty0 357--368, 2013.
+\newblock {\em Acta Geotechnica}, 10(3):357--368.
 
-\bibitem[Han et~al.(2007)Han, Feng, and Owen]{han2007coupled}
-K~Han, YT~Feng, and DRJ Owen.
+\bibitem[Han et~al., 2007]{han2007coupled}
+Han, K., Feng, Y., and Owen, D. (2007).
 \newblock Coupled lattice boltzmann and discrete element modelling of
   fluid--particle interaction problems.
-\newblock \emph{Computers \& structures}, 85\penalty0 (11):\penalty0
-  1080--1088, 2007.
+\newblock {\em Computers \& structures}, 85(11):1080--1088.
 
-\bibitem[Kenney and Lau(1985)]{kenney1985internal}
-TC~Kenney and D~Lau.
+\bibitem[Kenney and Lau, 1985]{kenney1985internal}
+Kenney, T. and Lau, D. (1985).
 \newblock Internal stability of granular filters.
-\newblock \emph{Canadian geotechnical journal}, 22\penalty0 (2):\penalty0
-  215--225, 1985.
+\newblock {\em Canadian geotechnical journal}, 22(2):215--225.
 
-\bibitem[Kenney and Lau(1986)]{kenney1986internal}
-TC~Kenney and D~Lau.
-\newblock Internal stability of granular filters: Reply.
-\newblock \emph{Canadian Geotechnical Journal}, 23\penalty0 (3):\penalty0
-  420--423, 1986.
-
-\bibitem[Lomin{\'e} et~al.(2013)Lomin{\'e}, Scholt{\`e}s, Sibille, and
-  Poullain]{lomine2013modeling}
-Franck Lomin{\'e}, Luc Scholt{\`e}s, Luc Sibille, and Philippe Poullain.
+\bibitem[Lomin{\'e} et~al., 2013]{lomine2013modeling}
+Lomin{\'e}, F., Scholt{\`e}s, L., Sibille, L., and Poullain, P. (2013).
 \newblock Modeling of fluid--solid interaction in granular media with coupled
   lattice boltzmann/discrete element methods: application to piping erosion.
-\newblock \emph{International Journal for Numerical and Analytical Methods in
-  Geomechanics}, 37\penalty0 (6):\penalty0 577--596, 2013.
+\newblock {\em International Journal for Numerical and Analytical Methods in
+  Geomechanics}, 37(6):577--596.
 
-\bibitem[Moffat and Herrera()]{moffat2014hydromechanical}
-Ricardo Moffat and Paulo Herrera.
+\bibitem[Moffat and Herrera, 2014]{moffat2014hydromechanical}
+Moffat, R. and Herrera, P. (2014).
 \newblock Hydromechanical model for internal erosion and its relationship with
   the stress transmitted by the finer soil fraction.
-\newblock \emph{Acta Geotechnica}, pages 1--8.
+\newblock {\em Acta Geotechnica}, pages 1--8.
 
-\bibitem[Plassiard et~al.(2009)Plassiard, Belheine, and
-  Donz{\'e}]{plassiard2009spherical}
-Jean-Patrick Plassiard, Noura Belheine, and Fr{\'e}d{\'e}ric-Victor Donz{\'e}.
-\newblock A spherical discrete element model: calibration procedure and
-  incremental response.
-\newblock \emph{Granular Matter}, 11\penalty0 (5):\penalty0 293--306, 2009.
+\bibitem[Okabe et~al., 2009]{okabe2009}
+Okabe, A., Boots, B., Sugihara, K., and Chiu, S. (2009).
+\newblock {\em Spatial tessellation: concepts and applications of voronoi
+  diagram}, volume 501.
+\newblock John Wiley \& Sons.
 
-\bibitem[Radjai et~al.(1996)Radjai, Jean, Moreau, and Roux]{radjai1996force}
-Farhang Radjai, Michel Jean, Jean-Jacques Moreau, and St{\'e}phane Roux.
+\bibitem[Radjai et~al., 1996]{radjai1996force}
+Radjai, F., Jean, M., Moreau, J.-J., and Roux, S. (1996).
 \newblock Force distributions in dense two-dimensional granular systems.
-\newblock \emph{Physical review letters}, 77\penalty0 (2):\penalty0 274, 1996.
+\newblock {\em Physical review letters}, 77(2):274.
 
-\bibitem[Shepherd(1989)]{shepherd1989correlations}
-Russell~G Shepherd.
+\bibitem[Shepherd, 1989]{shepherd1989correlations}
+Shepherd, R.~G. (1989).
 \newblock Correlations of permeability and grain size.
-\newblock \emph{Groundwater}, 27\penalty0 (5):\penalty0 633--638, 1989.
+\newblock {\em Groundwater}, 27(5):633--638.
 
-\bibitem[Skempton and Brogan(1994)]{skempton1994experiments}
-AW~Skempton and JM~Brogan.
+\bibitem[Skempton and Brogan, 1994]{skempton1994experiments}
+Skempton, A. and Brogan, J. (1994).
 \newblock Experiments on piping in sandy gravels.
-\newblock \emph{Geotechnique}, 44\penalty0 (3):\penalty0 449--460, 1994.
+\newblock {\em Geotechnique}, 44(3):449--460.
 
-\bibitem[{\v{S}}milauer(2006)]{vsmilauer2006splendors}
-V{\'a}clav {\v{S}}milauer.
+\bibitem[{\v{S}}milauer, 2006]{vsmilauer2006splendors}
+{\v{S}}milauer, V. (2006).
 \newblock The splendors and miseries of yade design.
-\newblock \emph{Annual Report of Discrete Element Group for Hazard Mitigation},
-  2006.
+\newblock {\em Annual Report of Discrete Element Group for Hazard Mitigation}.
 
-\bibitem[{\v{S}}milauer and Chareyre(2010)]{vsmilauer2010yade}
-V{\'a}clav {\v{S}}milauer and Bruno Chareyre.
+\bibitem[{\v{S}}milauer and Chareyre, 2010]{vsmilauer2010yade}
+{\v{S}}milauer, V. and Chareyre, B. (2010).
 \newblock Yade dem formulation.
-\newblock \emph{Yade Documentation}, 2010.
+\newblock {\em Yade Documentation}.
 
-\bibitem[Succi(2001)]{succi2001lattice}
-Sauro Succi.
-\newblock \emph{The lattice Boltzmann equation: for fluid dynamics and beyond}.
-\newblock Oxford university press, 2001.
+\bibitem[Succi, 2001]{succi2001lattice}
+Succi, S. (2001).
+\newblock {\em The lattice Boltzmann equation: for fluid dynamics and beyond}.
+\newblock Oxford university press.
 
-\bibitem[Thornton(1997)]{thornton1997force}
-Colin Thornton.
+\bibitem[Thornton, 1997]{thornton1997force}
+Thornton, C. (1997).
 \newblock Force transmission in granular media.
-\newblock \emph{Kona Powder and Particle Journal}, 15\penalty0 (0):\penalty0
-  81--90, 1997.
+\newblock {\em Kona Powder and Particle Journal}, 15(0):81--90.
 
-\bibitem[To et~al.()To, Galindo-Torres, and Scheuermann]{tosequential}
-HD~To, SA~Galindo-Torres, and A~Scheuermann.
-\newblock Sequential sphere packing by trilateration equations.
-
-\bibitem[To et~al.(2015)To, Torres, and Scheuermann]{to2015primary}
-Huu~Duc To, Sergio Andres~Galindo Torres, and Alexander Scheuermann.
+\bibitem[To et~al., 2015]{to2015primary}
+To, H.~D., Torres, S. A.~G., and Scheuermann, A. (2015).
 \newblock Primary fabric fraction analysis of granular soils.
-\newblock \emph{Acta Geotechnica}, 10\penalty0 (3):\penalty0 375--387, 2015.
+\newblock {\em Acta Geotechnica}, 10(3):375--387.
 
-\bibitem[Voivret et~al.(2009)Voivret, Radjai, Delenne, and
-  El~Youssoufi]{voivret2009multiscale}
-Charles Voivret, Farhang Radjai, J-Y Delenne, and Moulay~Sa{\"\i}d
-  El~Youssoufi.
+\bibitem[Voivret et~al., 2009]{voivret2009multiscale}
+Voivret, C., Radjai, F., Delenne, J.-Y., and El~Youssoufi, M.~S. (2009).
 \newblock Multiscale force networks in highly polydisperse granular media.
-\newblock \emph{Physical review letters}, 102\penalty0 (17):\penalty0 178001,
-  2009.
+\newblock {\em Physical review letters}, 102(17):178001.
 
 \end{thebibliography}

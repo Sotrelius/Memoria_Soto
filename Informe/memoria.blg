@@ -1,53 +1,48 @@
 This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: memoria.aux
-The style file: plainnat.bst
+The style file: apalike.bst
 Database file #1: bibliografia.bib
-Warning--can't use both volume and number fields in catalano2013pfv
-Warning--empty year in moffat2014hydromechanical
-Warning--empty year in moffat2014hydromechanical
-Warning--empty journal in tosequential
-Warning--empty year in tosequential
-Warning--empty year in tosequential
-You've used 23 entries,
-            2773 wiz_defined-function locations,
-            738 strings with 8895 characters,
-and the built_in function-call counts, 10817 in all, are:
-= -- 968
-> -- 599
-< -- 13
-+ -- 203
-- -- 180
-* -- 921
-:= -- 1649
-add.period$ -- 69
-call.type$ -- 23
-change.case$ -- 128
-chr.to.int$ -- 23
-cite$ -- 52
-duplicate$ -- 492
-empty$ -- 904
-format.name$ -- 213
-if$ -- 2247
+Warning--there's a number but no volume in cundall1979
+You've used 21 entries,
+            1935 wiz_defined-function locations,
+            610 strings with 7244 characters,
+and the built_in function-call counts, 8345 in all, are:
+= -- 823
+> -- 317
+< -- 15
++ -- 112
+- -- 104
+* -- 724
+:= -- 1444
+add.period$ -- 64
+call.type$ -- 21
+change.case$ -- 154
+chr.to.int$ -- 21
+cite$ -- 22
+duplicate$ -- 312
+empty$ -- 595
+format.name$ -- 135
+if$ -- 1623
 int.to.chr$ -- 1
-int.to.str$ -- 1
+int.to.str$ -- 0
 missing$ -- 24
-newline$ -- 122
-num.names$ -- 92
-pop$ -- 250
+newline$ -- 108
+num.names$ -- 63
+pop$ -- 129
 preamble$ -- 1
-purify$ -- 106
+purify$ -- 157
 quote$ -- 0
-skip$ -- 360
+skip$ -- 239
 stack$ -- 0
-substring$ -- 473
-swap$ -- 42
-text.length$ -- 3
+substring$ -- 627
+swap$ -- 39
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 248
-warning$ -- 6
-while$ -- 105
+type$ -- 120
+warning$ -- 1
+while$ -- 73
 width$ -- 0
-write$ -- 299
-(There were 6 warnings)
+write$ -- 273
+(There was 1 warning)

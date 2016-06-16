@@ -4,7 +4,9 @@
 \usepackage[font={small}]{caption}
 \usepackage{subfigure}
 \usepackage{lipsum}
-\usepackage{pdfpages}
+\usepackage{pdfpages} 
+\usepackage{appendix}  %package para el anexo ql
+\usepackage[nottoc,notlot,notlof]{tocbibind}
 
 %\bibpunct{(}{)}{;}{n}{,}{,}
 \usepackage{natbib} %original
@@ -13,7 +15,7 @@
 
 \usepackage{multicol,caption}
 \usepackage[empty]{fullpage}
-\usepackage{amssymb} 
+\usepackage{amssymb}
 \usepackage{placeins}
 \usepackage{float}
 \usepackage{wrapfig}
@@ -37,8 +39,8 @@
 \title{Modelación numérica 3D de la interacción entre flujo y partícula en medios permeables}
 % \auspicio{.}[saquense unas monedas pal tesista]
 % \date{JULIO 2014}[Si hombre]
-\date{Marzo 2016}
-\guia{Ricardo Moffat Covarruvias}
+\date{2016}
+\guia{Ricardo Moffat Covarrubias}
 \nombreguia{Ricardo}
 \apellidoguia{Moffat}
 \carrera{Ingeniero Civil}
@@ -62,6 +64,14 @@
 % \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 %%%%%%%%%%%%%%%
 
+%renew pa las tablas
+\renewcommand{\tablename}{Tabla}
+%renew pa los anexos
+\renewcommand{\appendixname}{Anexos}
+\renewcommand{\appendixtocname}{Anexos}
+\renewcommand{\appendixpagename}{Anexos}
+
+
 \frontmatter
 \maketitle
 \pagenumbering{Roman}
@@ -69,11 +79,11 @@
 
 %%%%%%%%%%%%%%%%%% ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-El presente trabajo consiste en el uso de un software de código abierto llamado $\yad$ (Yet Another Dynamic Engine) escrito en lenguaje C++, que posee una interfaz en Python. Utilizando $\yad$ y elementos de programación llamados objetos se crea una serie de códigos que permiten crear paquetes de suelo con diversas características y acoplarlo a un dominio de fluido a escala de poros. El modelo resuelve la física del problema, por lo que se cambian condiciones de contorno para estudiar las respuestas que esto provoca en el suelo y del flujo.\
+El presente trabajo consiste en el uso de un software de código abierto llamado $\yad$ (Yet Another Dynamic Engine) escrito en lenguaje C++, que posee una interfaz en Python. Utilizando $\yad$ y elementos de programación llamados objetos, se crea una serie de códigos que permiten crear paquetes de suelo con diversas características y acoplarlo a un dominio de fluido a escala de poros. 
 
-El objetivo principal es la construcción de un modelo numérico que logre acoplar el efecto del flujo y de las partículas. Para esto se realizan modelos de prueba y modelos de suelo sin fluido, luego se construyen modelos acoplados con flujo ascendente. Se valida el modelo para el análisis de la conductividad hidráulica, comparando los resultados de la modelación con resultados empíricos encontrados en la literatura. Luego se aumenta la cantidad de elementos en las simulaciones y la complejidad de los paquetes de esferas, pasando de modelos con un solo tamaño a paquetes de esferas uniformemente distribuidos. A este set de modelos se le cambian las condiciones de confinamiento y el valor de la polidispersión, se estudia el efecto de estos cambios en los valores de la conductividad hidráulica. También se caracteriza cualitativamente el esqueleto de suelo para una serie de granulometrías,se analiza la distribución de la fuerza promedio entre los granos finos y los granos gruesos. Se explora en formas de construcción de paquetes de suelo, buscando la mejor forma de recrear granulometrías inestables estudiadas en otros ensayos. Finalmente se crean 4 granulometrías reales a las cuales no es posible acoplar el flujo de fluido debido a sus características y a su distribución espacial. Se caracteriza la distribución porcentual de tensiones para obtener un gradiente hidráulico critico a partir de la relación entre las tensiones transportadas por los granos finos y las transportada por los granos gruesos.\
+El objetivo principal es la construcción de un modelo numérico que logre acoplar el efecto del flujo y de las partículas en medios granulares. Para esto se realizan modelos de prueba y de suelo sin fluido, luego se construyen modelos acoplados con flujo ascendente. Se realiza una validación para el análisis de la conductividad hidráulica, comparando los resultados de la modelación con resultados empíricos encontrados en la literatura. Luego se aumenta la cantidad de elementos en las simulaciones (de suelo y de fluidos) y la complejidad de los paquetes de esferas, pasando de modelos con un solo tamaño de granos a paquetes de esferas uniformemente distribuidos. A este set de modelos se le cambian las condiciones de confinamiento y el valor de la polidispersión y se estudia el efecto de los cambios realizados en los valores de la conductividad hidráulica. También se caracteriza cualitativamente el esqueleto de suelo para una serie de granulometrías, se analiza la distribución de la fuerza promedio entre los granos finos y los granos gruesos. Se explora en formas de construcción de paquetes de suelo, buscando la mejor forma de recrear granulometrías inestables según criterio de Kenney and Lou 1985. Finalmente se crean 4 granulometrías reales las que no se acoplan con el fluido, debido a diferencia de tamaños entre volúmenes contiguos de fluido. Se caracteriza la distribución de tensiones en función del diámetro de los granos para relacionarlo con el gradiente hidráulico crítico.
 
-Se logra realizar el modelo y con las simulaciones realizadas se caracteriza el comportamiento de la conductividad hidráulica para un tamaño de grano seleccionado y se observa la influencia del confinamiento y de la polidispersión, se propone una expresión para calcular la conductividad hidráulica en el rango de estudio. Se demuestra que la polidispersión provoca que la fuerza sea transportada de forma preferente por los granos gruesos. Por ultimo se caracteriza el estado tensional para distintas granulometrías, incluyendo 4 reales. Se encuentra una relación lineal entre el módulo de la tensión y el tamaño de diámetro y la existencia de una zona de dispersión para las granulometrías inestables, en donde existen granos finos con muy poca tensión y otros muy cargados. La envolvente de la dispersión es no-lineal y se relaciona con el gradiente hidráulico critico.
+Con las simulaciones realizadas se caracteriza el comportamiento de la conductividad hidráulica para un tamaño de grano seleccionado y se observa la influencia del confinamiento y de la polidispersión. Se propone una expresión para calcular la conductividad hidráulica en el rango de estudio. Se demuestra que la polidispersión provoca que la fuerza sea transportada de forma preferente por los granos gruesos. Se encuentra una relación lineal entre el módulo de la tensión y el tamaño de diámetro; la existencia de una zona de dispersión para las granulometrías inestables, en donde existen granos finos con muy poca tensión y otros muy cargados. La envolvente de la dispersión es no-lineal y se relaciona con el gradiente hidráulico critico.
 \end{abstract}
 
 
@@ -84,7 +94,7 @@ A la arcilla fundamental, Violeta Liz y Cristobal.
 \end{dedicatoria}
 
 \begin{thanks}
-aki se ponen las gracias totales y teni que nombrar a todos los que lloran si no los nombras.
+Si no tuviera l\'imite de una p\'agina, ser\'ia el cap\'itulo m\'as largo de esta memoria. Primero agradecer a Sandra, mi madre, que hace 7 a\~nos ya no est\'a, a Arturo, mi padre, porque son ambos responsables en alguna forma, que yo me encuentre ac\'a y no siendo un delincuente o traficante. A mi hermano Agust\'in, por tener c\'omo pasatiempo agarrarme pal webeo y por haberse ido de la casa, la motta dura el triple, gracias. A Paulo Herrera, por introducirme a un tema como la modelaci\'on num\'erica, es una herramienta muy poderosa y se pueden hacer cosas entretenidas programando. A Ricardo Moffat, por aceptar ser mi profesor gu\'ia y mostrar inter\'es en el trabajo que se realiza. A Santiago Montserrat por las correcciones, la buena onda y la sencillez en el trabajo, no se da color. A Yarko Niño por el tremendo temple que muestra cada d\'ia. Al Beto por ser un androide buena onda, a Olivares por recordarme que somos ideol\'ogicamante diferentes, a Tamburrino por el buen humor y compartir el amor por los asados, a JF Beltr\'an por la buena disposici\'on, al Hugo Ulloa por invitarme al mundo de la fluidodin\'amica y recordarnos que somos unos ñoños y al DIC por el auspicio con el PC. Agradecer tambi\'en a quienes cotidianamente hacen que esto funcione, la Jaqui, que siempre me puso la fianza para estar en la salita. A las  M\'onicas, a la Patty, alias t\'ia prorroga, a la Sarita, a la se\~nora Maria Elena, a la Natty, la Paolita, la Julia y toda la gente de bienestar, al JD, Sensei, por abrirme las puertas del laboratorio. Todas parte de la clase trabajadora de este pa\'is, que tiene una jornada laboral esclavizante y que va a tener que levantarse para que tengamos un futuro mejor, pero que tambi\'en hace sentirse avergonzado del lugar de privilegio que tendremos quienes estudiamos ac\'a. Al team paragua, De vico, Tutu, george, Marco, Mac Brayan y knife, por llevarme por el mal camino, cuantos metros c\'ubicos de piscolas y otras especias, aunque sean institutanos. A la sede de Andr\'es Bello, fue la c\'abala y cumpli\'o, pose\'ia todos los implementos necesarios para el estudio, en formato sixpack o litro. Al team Ordaca, digase, Rolo, Eddinnnnson, Fepo, Willy, Peter, Gerald, Pino, Alex, siempre dando aguante, grandes personas. Al Poton por trasnochar hablandome en ingl\'es y ayudarme a pasar el puto michigan. A los cabros de la pecera por compartir el perreo intenso en la salita, Uribe, Eduardo reggeoton Boy, John doors, jaque, Clay Thompson, Caicha, Enzo, Cami, Michelle, Pauly, carpentier, Trolezzy, Vedog. A las ratas tsuneras Balbo, Jano y oss. A mi t\'ia Erica, por darme mucha comida cada vez que la voy a ver, tambi\'en a mi prima-sister Pauli. Al Ale por ser buen amigo, por alojarme cuando me quedaba de androide hasta las 8 am trabajando. A la Boticheli, que es como una persona. A mi primo Ignacio por apañar a las basketeras en Bel Air. A la Nicold, por las buenas y las malas, me enseñaste cosas que no puedo olvidar. A todos gracias totales, ahora empieza la verdad.
 \end{thanks}
 
 
@@ -123,20 +133,22 @@ aki se ponen las gracias totales y teni que nombrar a todos los que lloran si no
 \newpage
 
 %%%%%%%%%%%%%%%% BIBLIOGRAFIA QL %%%%%%%%%%%%%%%%%%%%%03 03 456
-\nocite{*}
-\bibliographystyle{plainnat}
-%\bibliographystyle{apalike}
-%\bibliographystyle{authordate1}
+
+\bibliographystyle{apalike}
 \bibliography{bibliografia}
 
 \pagebreak
 \input{poster_SOCHID.tex}
 \pagebreak
-\input{anexo1.tex}
-\pagebreak
 \input{anexo2.tex}
 \pagebreak
-\input{Informe3Dprinter.tex}
+\input{anexo3.tex}
+\pagebreak
+\input{anexo4.tex}
+\pagebreak
+\input{anexo5.tex}
+%\pagebreak
+%\input{Informe3Dprinter.tex}
 \end{document}
 
 

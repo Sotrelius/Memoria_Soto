@@ -1,57 +1,64 @@
 \select@language {spanish}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Distribuci\'on del agua en el planeta.\relax }}{8}{figure.caption.5}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Esquema de medio permeable al cual se le induce un flujo debido a la extracci\'on de gas natural, agua o petroleo.\relax }}{9}{figure.caption.6}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Esquema de interacci\'on entre part\IeC {\'\i }culas y algoritmo de detecci\'on de contacto, YADE formulation 2010.\relax }}{11}{figure.caption.7}
-\contentsline {Algoritmo de detecci\'on}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Contacto entre elementos.}}}{10}{figure.caption.7}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Ciclo de c\'alculo, esquema de actualizaci\'on de informaci\'on del modelo.\relax }}{15}{figure.caption.8}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Radjai et al, 1996. (a) Distribuci\'on probabil\IeC {\'\i }stica de esfuerzos normales normalizada (b) Distribuci\'on probabil\IeC {\'\i }stica de esfuerzos tangenciales normalizada.\relax }}{16}{figure.caption.9}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Esfuerzo Normal}}}{16}{figure.caption.9}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Esfuerzo Tangencial}}}{16}{figure.caption.9}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces (a) Distribuci\'on esfuerzo muestra 3D (b) zoom a la malla de esfuerzos.\relax }}{17}{figure.caption.10}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Thornton, 1997}}}{17}{figure.caption.10}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Voivret et al. 2009}}}{17}{figure.caption.10}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Distribuci\'on del agua en el planeta.\relax }}{6}{figure.caption.5}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Esquema de medio permeable al cual se le induce un flujo debido a la extracci\'on de gas natural, agua o petroleo.\relax }}{7}{figure.caption.6}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Esquema de interacci\'on entre part\IeC {\'\i }culas y algoritmo de detecci\'on de contacto (YADE formulation 2010).\relax }}{9}{figure.caption.7}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Algoritmo de detecci\'on.}}}{9}{figure.caption.7}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Contacto entre elementos.}}}{9}{figure.caption.7}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Ciclo de c\'alculo, esquema de actualizaci\'on de informaci\'on del modelo.\relax }}{14}{figure.caption.8}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Radjai et al, (1996). (a) Distribuci\'on probabil\IeC {\'\i }stica de esfuerzos normales normalizada (b) Distribuci\'on probabil\IeC {\'\i }stica de esfuerzos tangenciales normalizada.\relax }}{15}{figure.caption.9}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Esfuerzo Normal}}}{15}{figure.caption.9}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Esfuerzo Tangencial}}}{15}{figure.caption.9}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces (a) Distribuci\'on esfuerzo muestra 3D (b) zoom a la malla de esfuerzos.\relax }}{16}{figure.caption.10}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Thornton, 1997}}}{16}{figure.caption.10}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Voivret et al. 2009}}}{16}{figure.caption.10}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Modelos de Prueba de tama\~no peque\~no, poca cantidad de esferas y sin fluido.\relax }}{20}{figure.caption.12}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Paquete de esferas colisionando por efecto de la gravedad.}}}{20}{figure.caption.12}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Paquete de esferas sujeto a compresi\'on mediante un muro m\'ovil.}}}{20}{figure.caption.12}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Distribuci\'on de presi\'on en el flujo y l\IeC {\'\i }neas de corriente, todos los valores se encuentran en MKS.\relax }}{22}{figure.caption.13}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Distribuci\'on de la Presi\'on}}}{22}{figure.caption.13}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {L\IeC {\'\i }neas de corriente en el medio poroso.}}}{22}{figure.caption.13}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces En el gr\'afico superior se aprecia el ajuste lineal del logaritmo del di\'ametro vs logaritmo de la conductividad hidr\'aulica, cada punto de color rojo corresponde al resultado de una simulaci\'on. En el gr\'afico de abajo se muestra el residuo entre los valores obtenidos y la curva propuesta.\relax }}{25}{figure.caption.15}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Modelos de Prueba de tama\~no peque\~no, poca cantidad de esferas y sin fluido.\relax }}{19}{figure.caption.12}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Paquete de esferas colisionando por efecto de la gravedad.}}}{19}{figure.caption.12}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Paquete de esferas sujeto a compresi\'on mediante un muro m\'ovil.}}}{19}{figure.caption.12}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Distribuci\'on de presi\'on en el flujo y l\IeC {\'\i }neas de corriente, todos los valores se encuentran en MKS.\relax }}{21}{figure.caption.13}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Distribuci\'on de la Presi\'on}}}{21}{figure.caption.13}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {L\IeC {\'\i }neas de corriente en el medio poroso.}}}{21}{figure.caption.13}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces En el gr\'afico superior se aprecia el ajuste lineal del logaritmo del di\'ametro vs logaritmo de la conductividad hidr\'aulica, cada punto de color rojo corresponde al resultado de una simulaci\'on. En el gr\'afico de abajo se muestra el residuo entre los valores obtenidos y la curva propuesta.\relax }}{24}{figure.caption.15}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Resumen de permeabilidades obtenidas mediante el acople DEM-PFV comparadas con ambos set de ecuaciones mencionados y con ensayos de laboratorios realizados con microesferas de vidrio.\relax }}{26}{figure.caption.18}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Conductividad hidr\'aulica vs Sd, para distintos tama\~nos de radio promedio, los di\'ametros se muestran en la parte superior en [m].\relax }}{30}{figure.caption.20}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces D20 vs Sd, para distintos valores de la presi\'on de confinamiento [Pa].\relax }}{30}{figure.caption.21}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Curva granulom\'etrica para distintos valores de Sd.\relax }}{31}{figure.caption.22}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Conductividad hidr\'aulica vs Sd, Tensi\'on de confinamiento de 2.7 [KPa].\relax }}{31}{figure.caption.23}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Conductividad hidr\'aulica, Tensi\'on de confinamiento de 27.4 [KPa]\relax }}{32}{figure.caption.24}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Porosidad vs Sd, para distintos valores de la presi\'on de confinamiento, tal como lo muestra la leyenda en la parte superior.\relax }}{33}{figure.caption.25}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Conductividad hidr\'aulica vs Sd, para distintos tensiones de confinamiento [Pa].\relax }}{33}{figure.caption.26}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Conductividad hidr\'aulica vs Sd, para distintos tensiones de confinamiento [Pa].\relax }}{35}{figure.caption.27}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Conductividad hidr\'aulica vs Sd, para distintos tensiones de confinamiento [Pa].\relax }}{36}{figure.caption.28}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Conductividad hidr\'aulica vs Sd, para distintos tama\~nos de radio promedio, los di\'ametros se muestran en la parte superior en [m]. Presi\'on de confinamiento 2.7 [KPa].\relax }}{29}{figure.caption.20}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces $d_{20}$ vs Sd, para distintos valores de la presi\'on de confinamiento [Pa].\relax }}{29}{figure.caption.21}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Curva granulom\'etrica para distintos valores de Sd.\relax }}{30}{figure.caption.22}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Conductividad hidr\'aulica vs Sd, Tensi\'on de confinamiento de 2.7 [KPa].\relax }}{30}{figure.caption.23}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Conductividad hidr\'aulica vs Sd, Tensi\'on de confinamiento de 27.4 [KPa]\relax }}{31}{figure.caption.24}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Porosidad vs Sd, para distintos valores de la presi\'on de confinamiento, tal como lo muestra la leyenda en la parte superior.\relax }}{32}{figure.caption.25}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Conductividad hidr\'aulica vs Sd, para distintos tensiones de confinamiento [Pa].\relax }}{32}{figure.caption.26}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Conductividad hidr\'aulica vs Sd, para distintos tensiones de confinamiento [Pa].\relax }}{34}{figure.caption.27}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Conductividad hidr\'aulica vs Sd, para distintos tensiones de confinamiento [Pa].\relax }}{35}{figure.caption.28}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces (a) Modelo Bimodal estratificado de 6 capas (con cada capa uniformemente distribuida Sd=0.17), (b) Modelo uniformemente distribuido Sd=0.68 y (c) Modelo Bimodal PSD\relax }}{39}{figure.caption.29}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Porcentaje de esfuerzo promedio de los granos finos $G_{fm}$ y de los granos gruesos $G_{gm}$ en funci\'on del tiempo expresado en n\'umero de iteraciones.\relax }}{41}{figure.caption.30}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Porcentaje de transmisi\'on de Fuerzas promedios en funci\'on de R.\relax }}{41}{figure.caption.31}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Porcentaje de transmisi\'on de Fuerzas promedios en funci\'on de R y R1.\relax }}{43}{figure.caption.32}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces .\relax }}{44}{figure.caption.33}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Porcentaje de transmisi\'on de Fuerzas promedios en funci\'on de R.\relax }}{44}{figure.caption.34}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Granulometrias Bimodales\relax }}{45}{figure.caption.35}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces (a) Modelo Bimodal estratificado de 6 capas y R=4.6 (con cada capa uniformemente distribuida Sd=0.17), (b) Modelo uniformemente distribuido para un $R_{mean}= 3$ $[mm] $, $R=5.15$, $R_1=1.57$ Sd=0.68 y (c) Modelo Bimodal PSD Sd=0.51 y un R=5.\relax }}{38}{figure.caption.29}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Porcentaje de esfuerzo promedio de los granos finos ($G_{fm}$) y de los granos gruesos ($G_{gm}$) en funci\'on del tiempo expresado en n\'umero de iteraciones.\relax }}{40}{figure.caption.30}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Porcentaje de transmisi\'on de Fuerzas promedios en funci\'on de R.\relax }}{40}{figure.caption.31}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Modelos uniformemente distribuidos (a) Sd=0.17 (b) Sd=0.85.\relax }}{42}{figure.caption.33}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Porcentaje de transmisi\'on de Fuerzas promedios en funci\'on de R y R1.\relax }}{43}{figure.caption.34}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Criterio de estabilidad de Kenney and Lou para las granulometr\IeC {\'\i }as bimodales modeladas.\relax }}{44}{figure.caption.35}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Porcentaje de transmisi\'on de Fuerzas promedios en funci\'on de R.\relax }}{44}{figure.caption.36}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Granulometrias Bimodales.\relax }}{45}{figure.caption.37}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Granulometr\IeC {\'\i }as realizadas.\relax }}{47}{figure.caption.36}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Granulometr\IeC {\'\i }as reales simuladas computacionalmente.\relax }}{48}{figure.caption.37}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Gr\'afico Tensi\'on normalizada por el promedio versus tama\~no de grano normalizado por D15.\relax }}{50}{figure.caption.39}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Granulometr\IeC {\'\i }as realizadas.\relax }}{47}{figure.caption.38}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Granulometr\IeC {\'\i }as reales simuladas computacionalmente.\relax }}{48}{figure.caption.39}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Gr\'afico Tensi\'on normalizada por el promedio versus tama\~no de grano normalizado por D15.\relax }}{50}{figure.caption.41}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Pendientes de las envolventes de la zona inferior de dispersi\'on de datos.\relax }}{52}{figure.caption.43}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {acercamiento a zona de dispersi\'on granulometr\IeC {\'\i }a A.}}}{52}{figure.caption.43}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {acercamiento a zona de dispersi\'on granulometr\IeC {\'\i }a B.}}}{52}{figure.caption.43}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para Sd=0.17.\relax }}{61}{figure.caption.45}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para Sd=0.34.\relax }}{62}{figure.caption.46}
-\contentsline {figure}{\numberline {7.3}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para Sd=0.51.\relax }}{62}{figure.caption.47}
-\contentsline {figure}{\numberline {7.4}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para Sd=0.68.\relax }}{63}{figure.caption.48}
-\contentsline {figure}{\numberline {7.5}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para Sd=0.75.\relax }}{63}{figure.caption.49}
-\contentsline {figure}{\numberline {7.6}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para R=1 y Sd=0.0\relax }}{64}{figure.caption.51}
-\contentsline {figure}{\numberline {7.7}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para R=1.5 y Sd=0.05\relax }}{65}{figure.caption.52}
-\contentsline {figure}{\numberline {7.8}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para R=2 y Sd=0.17\relax }}{65}{figure.caption.53}
-\contentsline {figure}{\numberline {7.9}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para R=4.6 y Sd=0.51\relax }}{66}{figure.caption.54}
-\contentsline {figure}{\numberline {7.10}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para R=5.4 y Sd=0.68\relax }}{66}{figure.caption.55}
+\contentsline {figure}{\numberline {1}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para Sd=0.17.\relax }}{63}{figure.caption.50}
+\contentsline {figure}{\numberline {2}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para Sd=0.34.\relax }}{64}{figure.caption.51}
+\contentsline {figure}{\numberline {3}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para Sd=0.51.\relax }}{64}{figure.caption.52}
+\contentsline {figure}{\numberline {4}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para Sd=0.68.\relax }}{65}{figure.caption.53}
+\contentsline {figure}{\numberline {5}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para Sd=0.75.\relax }}{65}{figure.caption.54}
+\contentsline {figure}{\numberline {6}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para R=1 y Sd=0.0\relax }}{66}{figure.caption.57}
+\contentsline {figure}{\numberline {7}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para R=1.5 y Sd=0.05\relax }}{67}{figure.caption.58}
+\contentsline {figure}{\numberline {8}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para R=2 y Sd=0.17\relax }}{67}{figure.caption.59}
+\contentsline {figure}{\numberline {9}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para R=4.6 y Sd=0.51\relax }}{68}{figure.caption.60}
+\contentsline {figure}{\numberline {10}{\ignorespaces Distribuci\'on de fuerzas promedio de granos finos y gruesos para R=5.4 y Sd=0.68\relax }}{68}{figure.caption.61}
+\contentsline {figure}{\numberline {11}{\ignorespaces Criterio de estabilidad de Kenney and Lou (1985), para granulometr\~A\discretionary {-}{}{}as de Skempton y Brogan (1994).\relax }}{69}{figure.caption.64}
+\contentsline {figure}{\numberline {12}{\ignorespaces Motor de la simulaci\'on.\relax }}{70}{figure.caption.67}
+\contentsline {figure}{\numberline {13}{\ignorespaces C\'odigo para crear una granulometr\'ia PSD.\relax }}{71}{figure.caption.68}

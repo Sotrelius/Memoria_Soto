@@ -1,14 +1,14 @@
 \chapter{ Validación del modelo} 
 \section{ Introducción}
-El objetivo de este capítulo es comparar resultados de modelos pequeños con resultados empíricos encontrados en la literatura. Si los resultados son consistentes se podrá obtener conclusiones al respecto al momento de ampliar las variables de estudio. En este caso se utiliza la conductividad hidráulica como parámetro a comparar. A lo largo del capitulo se explica cómo generar los modelos de prueba y los modelos acoplados. Se sistematizan elementos de ensayo y error, se evidencian algunas restricciones que presenta el modelo, se presentan las características y parámetros principales de los modelos realizados y se comprueba si el acople se ajusta a la física que se desea estudiar.\\
+El objetivo de este capítulo es comparar resultados de modelos pequeños con resultados empíricos encontrados en la literatura. En este caso se utiliza la conductividad hidráulica como parámetro a comparar. A lo largo del capítulo se explica cómo generar los modelos de prueba y los modelos acoplados. Se sistematizan elementos de ensayo y error, se evidencian algunas restricciones que presenta el modelo, se presentan las características y parámetros principales de los modelos realizados y se comprueba si el acople se ajusta a la física que se desea estudiar.\\
 
-Lo primero que se construye son paquetes de esferas con distintas características (densidad, módulo de elasticidad, diámetro, etc). Desde rutinas básicas que insertan esferas aisladas y logran reproducir choque elástico entre ellas, pasando por paquetes de mayor tamaño, para finalmente lograr paquetes de esferas insertos en distintas geometrías (conos, paralelogramos, triángulos, etc).  Confinados mediante el movimiento de muros, los que pueden cambiar de posición a distintas velocidades.\\
+Lo primero que se construye son paquetes de esferas con distintas características (densidad, módulo de elasticidad, diámetro, etc). Desde rutinas básicas que insertan esferas aisladas y logran reproducir el choque elástico entre ellas, pasando por paquetes de mayor tamaño, para finalmente lograr paquetes de esferas insertos en distintas geometrías (conos, paralelogramos, triángulos, etc),  confinados mediante el movimiento de muros (planos creados que simulan paredes móviles), los que pueden cambiar de posición a distintas velocidades.\\
 
-Dentro del proceso de ensayo y error, algunos modelos fueron creados mediante códigos, otros desde la interfaz gráfica y un porcentaje de ellos utilizando una mezcla de ambos. En la mayoría de los ensayos que se presentan en este capítulo se generó la geometría mediante códigos y posteriormente fueron manipulados desde la interfaz gráfica. Conforme se adquiere experiencia y comprensión del lenguaje de programación del modelo, se logra automatizar mediante código los procesos que se realizan con la interfaz gráfica. Esto es importante ya que permite detener procesos, tales como confinamiento de los muros o guardar datos dado un criterio  con la precisión deseada e imponer valores para algunos parámetros en el momento indicado sin tener que supervisar el software.\\
+Dentro del proceso de ensayo y error, algunos modelos fueron creados mediante códigos, otros desde la interfaz gráfica de $\yad$ y un porcentaje de ellos utilizando una mezcla de ambos. En la mayoría de los ensayos que se presentan en este capítulo se generó la geometría mediante códigos y posteriormente fueron manipulados desde la interfaz gráfica. Esto es importante ya que permite detener procesos, tales como confinamiento de los muros o guardar datos dado un criterio  con la precisión deseada e imponer valores para algunos parámetros en el momento indicado sin tener que supervisar el software.\\
  
 
-\section{ Modelos de Prueba}
-En la Figura \ref{fig:model} se aprecian dos modelos de prueba, los que consisten en cubos que contienen un número de esferas del orden de  400. Estos cubos fueron sometidos a distintos campos de aceleración, verificando el funcionamiento de los algoritmos de choque esfera-esfera y esfera-muro. Se observó de manera gráfica el intercambio de velocidad angular, momentum y fuerza. Se obtienen resultados consistentes para el comportamiento de las esferas sometidas a las condiciones impuestas. Un ejemplo de esto es que rebotan al momento del choque, el choque es amortiguado; por otro lado los cuerpos no se atraviesan entre sí (muros con esferas u otra combinación). Producto del método utilizado para generar las esferas al momento de ser creadas se encuentran flotando en el aire. En particular el modelo que se muestra en (a) está sometido a la aceleración de gravedad g = -9,81 [ms$^{-1}$] en dirección $\vec{z}$ según las coordenadas cartesianas definidas en el modelo.\\
+\section{ Modelos de prueba}
+En la Figura \ref{fig:model} se aprecian dos modelos de prueba, los que consisten en cubos que contienen un número de esferas del orden de  400. Estos cubos fueron sometidos a distintos campos de aceleración, verificando el funcionamiento de los algoritmos de choque esfera-esfera y esfera-muro. Se observó de manera gráfica el intercambio de velocidad angular, momentum y fuerza. Se obtienen resultados consistentes para el comportamiento de las esferas sometidas a las condiciones impuestas. Un ejemplo de esto es que rebotan al momento del choque y el choque es amortiguado; por otro lado los cuerpos no se atraviesan entre sí (muros con esferas u otra combinación). Producto del método utilizado para generar las esferas al momento de ser creadas se encuentran flotando en el aire. En particular el modelo que se muestra en (a) está sometido a la aceleración de gravedad g = -9,81 [ms$^{-1}$] en dirección vertical hacia arriba según las coordenadas cartesianas definidas en el modelo.\\
 
 \begin{figure}[htb]
 \centering
@@ -20,14 +20,14 @@ En la Figura \ref{fig:model} se aprecian dos modelos de prueba, los que consiste
 
 \vspace{0.6 mm}
 
-Una vez depositadas por efecto de la gravedad y con el choque inelástico funcionando, el siguiente paso es añadir elementos de muro dinámicos, que sean capaces de interactuar con las esferas. Estos servirán más adelante para definir confinamiento y esfuerzo de corte, como también regular la porosidad del medio si así se estima conveniente. En la Figura \ref{fig:model} (b) se observa un modelo de las mismas características que (a), al cual se le añade un elemento de muro dinámico que se mueve con una velocidad definida en dirección -$\vec{z}$ según las coordenadas cartesianas que definen el modelo. Esto produce una compresión, una variación en la distribución de esfuerzos y en el valor la porosidad con respecto al tiempo. En esta etapa de la modelación todos los elementos son construidos mediante códigos, pero el control del muro se realiza mediante la interfaz gráfica, por lo que la presión de confinamiento no es controlada de forma precisa.\\
+Una vez depositadas por efecto de la gravedad y con el choque inelástico funcionando, el siguiente paso es añadir elementos de muro dinámicos, que sean capaces de interactuar con las esferas. Estos servirán, más adelante, para definir confinamiento y esfuerzo de corte, como también regular la porosidad del medio si así se estima conveniente. En la Figura \ref{fig:model} (b) se observa un modelo de las mismas características que (a), al cual se le añade un elemento de muro dinámico que se mueve con una velocidad definida en dirección vertical hacia abajo según las coordenadas cartesianas que definen el modelo. Esto produce una compresión, una variación en la distribución de esfuerzos y en el valor la porosidad con respecto al tiempo. En esta etapa de la modelación todos los elementos son construidos mediante códigos, pero el control del muro se realiza mediante la interfaz gráfica, por lo que la presión de confinamiento no es controlada de forma precisa.\\
 
 La condición de pared que permite una interacción entre cuerpos rígidos deja de cumplirse cuando la tensión entre el muro y las esferas excede cierto límite. Cuando esto sucede dejan de cumplirse las leyes de la física que se imponen en el modelo y el cuerpo que se encuentra interactuando atraviesa el muro y se aleja de la zona de la modelación.\\
 
-Se realizan pruebas con geometrías más complejas, como por ejemplo un cilindro, sometido también a ciertas condiciones de confinamiento. Aunque es posible generar geometrías de alta complejidad  que contengan esferas utilizando $\yad$, no se continúa explorando esta área debido a que existe una limitación para acoplar el flujo con las partículas, problema relacionado a la cantidad de dominios a los cuales se les puede asignar condiciones de borde asociadas al flujo.\\
+Se realizaron pruebas con geometrías más complejas, como por ejemplo un cilindro, sometido también a ciertas condiciones de confinamiento. Aunque es posible generar geometrías de alta complejidad  que contengan esferas utilizando $\yad$, no se continúa explorando esta área debido a que existe una limitación para acoplar el flujo con las partículas, problema relacionado a la cantidad de dominios a los cuales se les puede asignar condiciones de borde asociadas al flujo.\\
 
 
-\section{ Modelos Acoplados}
+\section{ Modelos acoplados}
 Se programa una serie de modelos que funcionan de forma secuencial, es decir, en primera instancia se generan los elementos de suelo y se someten a las condiciones de campo de aceleración y confinamiento. Una vez en equilibrio se incluye el elemento de fluido y sus respectivas condiciones de borde. Para modelar el flujo existe una limitante, las condiciones de borde a las que puede estar sujeto el paquete de suelo se reduce a un hexaedro, es decir, el volumen de control se encuentra delimitado por seis caras y a cada una de estas es posible asignarle ya sea una condición de presión o una condición de velocidad para el flujo.\\
 
 En la Figura \ref{fig:temp} se observa el campo de presión resultante de imponer una presión P=0.125 [Pa] en la cara basal del permeámetro modelado. También se observa las líneas de corriente, dado que la diferencia de presión induce un flujo y se conoce la geometría de los poros, se conoce entonces el valor de la velocidad. Se observa de forma clara zonas con mayor módulo de la velocidad y cómo las líneas de corriente bordean los granos.\\
@@ -42,9 +42,9 @@ Imágenes como la Figura \ref{fig:temp} se obtienen porque el modelo incluye un o
 \label{fig:temp}
 \end{figure}
 
-Una vez que se logra acoplar el flujo con las partículas, nuevamente se realizan variadas pruebas, con distintos tamaños de grano, diferentes gradientes de presión realizando nuevamente una etapa exploratoria de las capacidades del software y del cumplimiento de los supuestos que hacen válida la simulación. Finalmente, se construye un permeámetro con granos del mismo tamaño con una condición de flujo ascendente.\\ 
+Una vez que se logra acoplar el flujo con las partículas, nuevamente se realizan variadas pruebas, con distintos tamaños de grano, diferentes gradientes de presión realizando nuevamente una etapa exploratoria de las capacidades del software y del cumplimiento de los supuestos que hacen válida la simulación. Finalmente, se construyó un permeámetro con granos del mismo tamaño con una condición de flujo ascendente, la que se utiliza a continuación.\\ 
 
-\section{ Validación del Modelo}
+\section{ Validación del modelo}
 Para probar que el acople mencionado en el apartado anterior es válido para los efectos de este trabajo, teniendo en cuenta que el modelo se encuentra validado para ensayos que guardan mayor relación con el área de la geomecánica por sobre la hidráulica en medios porosos, es que se verificará si el modelo entrega resultados coherentes con la realidad, por lo tanto se analizará el comportamiento de la conductividad hidráulica en función  del tamaño de grano.\\
 
 Muchos estudios experimentales han obtenido valores de la conductividad hidráulica $(K)$ y concluyen que su valor es proporcional a una constante C, un diámetro representativo d$_{i}$ elevado a una potencia (b), que varía entre 1.11 y 2.05 (\citealt{shepherd1989correlations}), de acuerdo a:  
@@ -54,9 +54,9 @@ K=Cd_{i}^b
 \label{eq:kd}
 \end{equation}\.
 
-Se realizan comparaciones de la conductividad hidráulica obtenida mediante la modelación numérica con resultados empíricos de conocidos en el área de la geomecánica como Hazen (1892), Slichter (1899), Terzaghi (1925), Beyer (1964), recopilados por (\citealt{devlin2015hydrogeosievexl}) y (\citealt{shepherd1989correlations}). En primera instancia para paquetes de esferas del mismo diámetro para diversos tamaños de radio. En segunda instancia los paquetes de esferas poseen un diámetro medio y se encuentran uniformemente distribuidas en un intervalo definido por un parámetro que denominaremos Sd, siendo  $D_{min}=D_{mean}-2Sd \cdot D_{mean}$ y $D_{max}=D_{mean}+2Sd \cdot D_{mean}$ el intervalo queda comprendido entre $[D_{min}, D_{max}]$.\\
+Se realizan comparaciones de la conductividad hidráulica obtenida mediante la modelación numérica con resultados empíricos de conocidos en el área de la geomecánica como Hazen (1892), Slichter (1899), Terzaghi (1925), Beyer (1964), recopilados por (\citealt{devlin2015hydrogeosievexl} ;\citealt{shepherd1989correlations}). En primera instancia para paquetes de esferas del mismo diámetro para diversos tamaños de radio. En segunda instancia los paquetes de esferas poseen un diámetro medio y se encuentran uniformemente distribuidas en un intervalo definido por un parámetro que denominaremos Sd, siendo  $D_{min}=D_{mean}-2Sd \cdot D_{mean}$ y $D_{max}=D_{mean}+2Sd \cdot D_{mean}$. El intervalo queda comprendido entre $[D_{min}, D_{max}]$.\\
 
-Se modela un permeámetro de base cuadrada con una superficie que contiene alrededor de 25 esferas y una altura con capacidad de contener cerca de 12 esferas, por lo tanto el número de esferas en cada simulación realizada es del orden de 300. Para los distintos diámetros modelados se utilizan los parámetros que muestra el Cuadro \ref{tbl:dat}.\\
+Se modela un permeámetro de base cuadrada con una superficie que contiene alrededor de 25 esferas y una altura con capacidad de contener cerca de 12 esferas, por lo tanto el número de esferas en cada simulación realizada es del orden de 300. Para los distintos diámetros modelados se utilizan los parámetros que muestra el Tabla \ref{tbl:dat}.\\
 
 \begin{table}[H]
 \centering
@@ -81,10 +81,10 @@ Coeficiente de Poisson & \nu & 0.5 & [-]\\
 
 
 
-\subsection{Resultados.}
-Como ya se ha mencionado el modelo consiste en un permeámetro de pequeñas dimensiones por el cual pasa un flujo a causa de la diferencia de presión impuesta. Posee forma de paralelogramo y se le aplica una fuerza de gravedad normal a la base cuadrada. En la cara inferior una condición de borde de presión constante mayor que cero y en la cara superior presión nula, el resto de las caras son impermeables. Para efectos del modelo, la viscosidad del aire es nula y no interactúa con el fluido.\\
+\subsection{Resultados}
+Como ya se ha mencionado el modelo consiste en un permeámetro de pequeñas dimensiones por el cual pasa un flujo de agua a causa de la diferencia de presión impuesta. Posee forma de paralelogramo y se le aplica una fuerza de gravedad normal a la base cuadrada. En la cara inferior una condición de borde de presión constante mayor que cero y en la cara superior presión nula, el resto de las caras son impermeables. Para efectos del modelo, la viscosidad del aire es nula y no interactúa con el fluido.\\
 
-De la ecuación de Darcy (\ref{eq:dar}), se deduce una expresión para la permeabilidad $k$. Del modelo se obtiene el caudal $Q_{in}$ y la altura del permeámetro equivalente a $\Delta{h}$; la viscosidad $\mu$, el área basal $D^2$  y la diferencia de presión $\Delta{P}$  son parámetros del modelo, por lo tanto se obtiene un valor para la permeabilidad.\\
+De la ecuación de Darcy (\ref{eq:dar}), se deduce una expresión para la permeabilidad $k$. Del modelo se obtiene el caudal $Q_{in}$ y la altura del permeámetro equivalente a $\Delta{h}$; la viscosidad $\mu$, el área basal $D^2$  y la diferencia de presión $\Delta{P}$  son parámetros del modelo, por lo tanto se obtiene un valor para la permeabilidad:\\
 
 \begin{equation}
 Q=kiA
@@ -102,13 +102,13 @@ Teniendo en cuenta la relación entre permeabilidad $(k)$ y conductividad hidrául
 k=K\frac{\mu}{g \rho_{h}}
 \end{equation}
 
-En donde $\rho_{h}$ la densidad del fluido, se obtiene una expresión para obtener la conductividad hidráulica y por lo tanto valores obtenidos a través del modelo.
+En donde $\rho_{h}$ la densidad del fluido, se obtiene una expresión para obtener la conductividad hidráulica y por lo tanto valores obtenidos a través del modelo:
 
 \begin{equation}
 K=\frac{Q_{in}}{D^2} \cdot \frac{g \rho_{h} \Delta h}{\Delta P}
 \end{equation}
 
-Se realizan 11 modelos con distinto radio de esferas, estos son sometidos a las condiciones expuestas en el cuadro \ref{tbl:dat}. Los radios modelados son R=[0.3, 0.5, 0.7, 0.9, 1.0, 1.25, 1.5, 1.75, 2.0, 2.5, 3.0] [m \cdot 10$^{-3}$]. En cada una de las simulaciones todas las esferas son del mismo tamaño. Las simulaciones no poseen un criterio unificado para darle término en función de la conductividad hidráulica, número de iteraciones o tiempo simulado. Esto es uno de los elementos que se tiene en consideración para la realización de los próximos modelos. Lo que si se verifica es que exista estabilidad entre el caudal de entrada y el de salida (\ref{eq:caud}), dado que se desea obtener datos en régimen permanente, por lo tanto se utiliza el siguiente criterio.\\
+Se realizan 11 modelos con distinto radio de esferas, estos son sometidos a las condiciones expuestas en el Tabla \ref{tbl:dat}. Los radios modelados son R=[0.3, 0.5, 0.7, 0.9, 1.0, 1.25, 1.5, 1.75, 2.0, 2.5, 3.0] [m \cdot 10$^{-3}$]. En cada una de las simulaciones todas las esferas son del mismo tamaño. Las simulaciones no poseen un criterio unificado para darle término en función de la conductividad hidráulica, número de iteraciones o tiempo simulado. Esto es uno de los elementos que se tuvo en consideración para la realización de los próximos modelos. Lo que si se verificó es que exista estabilidad entre el caudal de entrada y el de salida (\ref{eq:caud}), dado que se desea obtener datos en régimen permanente, por lo tanto se utiliza el siguiente criterio.\\
 
 \begin{equation}
 \frac{\vert Q_{in}-Q_{out} \vert \cdot 100}{Q_{in}}< 0.1
@@ -121,7 +121,7 @@ Para verificar el comportamiento de los resultados obtenidos se calculó el $\log
 K=Cd^n  \hspace{0.3 cm} \rightarrow \hspace{0.3 cm} \log_{10}{(K)}=n \log_{10}{(d)}+\log_{10}{(C)}  \hspace{0.3 cm} \rightarrow \hspace{0.3 cm}  y=mx+n
 \end{equation}
 
-Para realizar el ajuste se utiliza el resultado de K y d de las 11 simulaciones, obteniendo el gráfico de la Figura  \ref{fig:res1}, en donde se observa una relación casi cuadrática del comportamiento de la conductividad hidráulica en función del diámetro de partícula. La ecuación (\ref{eq:kd1}) corresponde a la ley de potencia obtenida mediante el ajuste lineal al logaritmo de la conductividad hidráulica en función del logaritmo del diámetro.
+Para realizar el ajuste se utiliza el resultado de K y d de las 11 simulaciones, obteniendo el gráfico de la Figura  \ref{fig:res1}, en donde se observa una relación casi cuadrática del comportamiento de la conductividad hidráulica en función del diámetro de partícula. La ecuación (\ref{eq:kd1}) corresponde a la ley de potencia obtenida mediante el ajuste lineal al logaritmo de la conductividad hidráulica en función del logaritmo del diámetro:
 
 \begin{equation}
 K=1.28 \cdot 10^6 d^{1.931}
@@ -186,16 +186,16 @@ Ecuación Shepherd, canal inmaduro  & 800 & 1.5 & $d_{10}$\\
 \label{tbl:reseq2}
 \end{table}
 
-En la Figura (\ref{fig:res2}) se observa como los resultados que entrega la modelación se ajustan a la ecuación de Shepherd para suelos granulares de textura madura. La mayor parte de los resultados obtenidos con las formulas empíricas seleccionadas utilizando los valores que entregan el modelo numérico, se encuentran delimitadas por la curva para suelos granulares de textura madura en el extremo superior y la expresión para dunas en el inferior, ambas propuestas por Shepherd. Se observa también que los resultados del modelo se aproximan más a las formulas propuestas por Beyer, Hazen y Harleman. Por último se puede notar que para diámetros menores a 1 [mm] las ecuaciónes de Bialas, Slichter y Terzaghi se alejan cada vez más de los resultados obtenidos en la modelación.
+En la Figura (\ref{fig:res2}) se observa como los resultados que entrega la modelación se ajustan a la ecuación de Shepherd para suelos granulares de textura madura. La mayor parte de los resultados obtenidos con las formulas empíricas seleccionadas utilizando los valores que entregan el modelo numérico, se encuentran delimitadas por la curva para suelos granulares de textura madura en el extremo superior y la expresión para dunas en el inferior, ambas expresiones son propuestas por Shepherd y clasifican una serie de experimentos de otros autores. Se observa también que los resultados del modelo se aproximan más a las formulas propuestas por Beyer, Hazen y Harleman. Por último se puede notar que para diámetros menores a 1 [mm] las ecuaciónes de Bialas, Slichter y Terzaghi se alejan cada vez más de los resultados obtenidos en la modelación.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1.0\textwidth]{Capitulo2/ValRcte2RMK3}
+\includegraphics[width=1.05\textwidth]{Capitulo2/ValRcte2RMK3}
 \caption{Resumen de permeabilidades obtenidas mediante el acople DEM-PFV comparadas con ambos set de ecuaciones mencionados y con ensayos de laboratorios realizados con microesferas de vidrio.}
 \label{fig:res2}
 \end{figure}
 
-Es importante recalcar el carácter esférico y liso de los elementos de suelo utilizados, del bajo ángulo de fricción impuesto (3 grados mientras que para arenas se espera uno de 30 grados), que el modulo de Young utilizado es de 1e6 [Pa] (para arenas 1e7) y por último la inexistencia de confinamiento en el paquete de suelo. Todo lo anterior produce que el resultado de los modelos se acerque más a la expresión de suelos granulares de textura madura (depósitos naturales de suelos granulares sin confinar) y no a las expresiones correspondiente a arenas, por lo que se corregirán los valores de estos parámetros en futuras modelaciones que representen suelos granulares.\\
+Es importante recalcar el carácter esférico y liso de los elementos de suelo utilizados, del bajo ángulo de fricción impuesto (3 grados mientras que para arenas se espera uno de 30 grados), que el modulo de Young utilizado es de $10^6$ [Pa] (para arenas $10^7$) y por último la inexistencia de confinamiento en el paquete de suelo. Todo lo anterior produce que el resultado de los modelos se acerque más a la expresión de suelos granulares de textura madura (depósitos naturales de suelos granulares sin confinar) y no a las expresiones correspondiente a arenas.\\
 
-Los modelos realizados permiten simular el comportamiento de suelos sintéticos representados por esferas de tamaño uniforme, los cuales sometidos a una diferencia de presión son atravesados por un flujo  ascendente de fluido. El valor obtenido para la conductividad hidráulica se comporta de forma similar a experimentos de laboratorio realizados y registrados en otras publicaciones y también es consistente a correlaciones propuestas por otros autores connotados como Terzaghi.\\
+Los modelos realizados permiten simular el comportamiento de suelos sintéticos representados por esferas de tamaño uniforme, los cuales al ser sometidos a una diferencia de presión son atravesados por un flujo  ascendente de fluido. El valor obtenido para la conductividad hidráulica se comporta de forma similar a experimentos de laboratorio realizados y registrados en otras publicaciones y también es consistente a correlaciones propuestas por otros autores connotados como Terzaghi 1925.\\
 

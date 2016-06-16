@@ -1,0 +1,17 @@
+\select@language {spanish}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Comparasci\'on de los grados de libertad (gdl) y el tiempo de CPU entre FEM y PFV, para una iteraci\'on (Catalano, 2013).\relax }}{17}{table.caption.11}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Parametros de los modelos de validaci\'on.\relax }}{22}{table.caption.14}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Ecuaciones del tipo $K= \frac {\rho g}{\mu } N \varphi (n) d_e^2$, para el calculo de la conductividad hidr\'aulica.\relax }}{24}{table.caption.16}
+\contentsline {table}{\numberline {3.3}{\ignorespaces Ecuaciones del tipo $K=a\cdot d^b$, para el calculo de la conductividad hidr\'aulica.\relax }}{25}{table.caption.17}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Parametros de los modelos de polidispersos.\relax }}{28}{table.caption.19}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Descripci\'on modelo bimodal 6 capas R1=4.6 Sd=0.17.\relax }}{41}{table.caption.32}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Resumen de los resultados de an\'alisis de tensiones.\relax }}{49}{table.caption.40}
+\contentsline {table}{\numberline {6.2}{\ignorespaces Resumen de los resultados de ajuste lineal.\relax }}{52}{table.caption.42}
+\contentsline {table}{\numberline {6.3}{\ignorespaces Resumen de las modelaciones.\relax }}{53}{table.caption.44}
+\addvspace {10\p@ }
